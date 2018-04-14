@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>参数设置</title>
+    <link rel="stylesheet" type="text/css" href="css/JS2-base.css">
+    <link rel="stylesheet" type="text/css" href="css/JS2-1-1.css">
+    <script type="text/javascript" src="js/JS2-1-1.js"></script>
+</head>
+<header>
+    <span class="head-left"></span>
+    <span class="head-word">参数设置</span>
+    <span class="head-right"></span>
+</header>
+<main>
+    <div class="middle-style">
+        <span class="middle-play">玩家配比</span>
+        <ul class="middle-list">
+			<li><span class="list-square"></span>杀手有<p id="killer"></p>人</li>
+			<li><span class="list-square"></span>平民有<p id="commoner"></p>人</li>
+        </ul>
+    </div>
+    <div class="middle-style center">
+    <button class="middle-set">点击设置</buton>
+	</div>
+	<div class="middle-style">
+	<span class="middle-keyword">水民词组</span>
+	<span class="middle-keyword">幽灵词组</span>
+	</div>
+	<div class="middle-style center">
+    <span>玩家数量</span>
+    <input id="num" size="1"/>
+    <span>人</span>
+    <input  class="middle-slider" id="range" type="range" min="4" max="18" value="4"step="1" oninput="change()" onchange="change()">
+    <!--oninput与onchange事件可以实时改变num的数值-->
+    </div>
+    <div class="bottom">
+    <button class="bottom-btn" onclick="deal()">发牌</button>
+    </div>
+</main>
+
+<body>
+</body>
+
+</html>
