@@ -16,15 +16,14 @@
     <span class="head-right"></span>
 </header>
 <main>
+
     <div class="middle-style">
-        <span class="middle-play">玩家配比</span>
-        <ul class="middle-list">
-			<li><span class="list-square"></span>杀手有<p id="killer"></p>人</li>
-			<li><span class="list-square"></span>平民有<p id="commoner"></p>人</li>
+        <span class="middle-setplayer">玩家配比</span>
+        <ul class="middle-list" id="role">
         </ul>
     </div>
     <div class="middle-style center">
-    <button class="middle-set">点击设置</buton>
+    <button class="middle-set" onclick="setrole()">点击设置</buton>
 	</div>
 	<div class="middle-style">
 	<span class="middle-keyword">水民词组</span>
@@ -32,7 +31,7 @@
 	</div>
 	<div class="middle-style center">
     <span>玩家数量</span>
-    <input id="num" size="1"/>
+    <input id="num" type="text" value="4" />
     <span>人</span>
     <input  class="middle-slider" id="range" type="range" min="4" max="18" value="4"step="1" oninput="change()" onchange="change()">
     <!--oninput与onchange事件可以实时改变num的数值-->
