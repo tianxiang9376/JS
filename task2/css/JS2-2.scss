@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+@mixin imgstyle($x, $y, $width, $height) {
+    width: $width;
+    height: $height;
+    background: url(../img/JS2-1-1.png);
+    background-position: $x $y;
+    background-size: .47rem .89rem;
+}
+
+body {
+    background: #29bde0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:.1rem;
+    border-bottom: 1px solid white;
+
+}
+
+.head-word {
+    color: white;
+    font-size: .2rem;
+}
+
+.head-left {
+    @include imgstyle(0, -.48rem, .36rem, .41rem);
+    display: inline-block;
+
+}
+
+.head-right {
+    width: .36rem;
+    height: .36rem;
+    background: url(../img/close.png);
+    background-position: 0 0;
+    background-size: .36rem .36rem;
+    display: inline-block;
+}
+
+main {
+    margin: .1rem auto;
+    padding: .2rem;
+    text-align: center;
+}
+
+.middle-back {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    background: #ffedc5;
+    border: 2px solid #fff;
+}
+
+.middle-round {
+    position: absolute;
+    top: -.25rem;
+    color: #f56b81;
+    text-align: center;
+    border: 3px solid #ffedc5;
+    width: .4rem;
+    height: .4rem;
+    line-height: .4rem;
+    border-radius: 50%;
+    background: #fff
+}
+
+#middle-showrole {
+    display: none;
+    margin-bottom: 1rem
+    h4 {
+        text-align: center;
+        font-size: .2rem;
+        margin-bottom: 0;
+        color: #29bde0
+    }
+}
+
+#watch{
+  width: 100%;
+    font-size: .2rem;
+    text-align: center;
+    color: #fff;
+    margin: .4rem 0;
+    padding: .1rem;
+    background: #fbb435;
+    border: 0
+}
+
+@media screen and (max-width: 350px) {
+    .middle-back {
+        img {
+            width: 1.5rem
+        }
+    }
+}
