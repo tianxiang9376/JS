@@ -13,6 +13,11 @@ body {
   background-color: #29bde0;
 }
 
+a {
+  text-decoration: none;
+  color: #29bde0;
+}
+
 /*隐藏checked复选框,aside是html5中的侧边框标签*/
 #asidemenu {
   display: none;
@@ -64,6 +69,7 @@ aside li {
   text-align: center;
   overflow: hidden;
   background-color: #29bde0;
+  padding: .1rem 0;
 }
 
 .head {
@@ -72,17 +78,22 @@ aside li {
   background-color: #29bde0;
 }
 
-.head-top-left {
-  width: 0.39rem;
-  height: 0.4rem;
-  background: url(../img/TASK13-2.png);
-  background-position: 0 0;
-  background-size: .52rem 2.04rem;
-  transform: scale(0.8);
+.head-left {
+  width: .25rem;
+  height: .41rem;
+  background: url(../img/JS2-1-1.png);
+  background-position: 0 -.48rem;
+  background-size: .47rem .89rem;
   display: inline-block;
   float: left;
+  margin-left: .1rem;
 }
 
+/*.head-top-left {
+    @include imgstyle(0, 0, .39rem, .4rem);
+    display: inline-block;
+    float: left;
+}*/
 .head-top-vote {
   margin: 0 auto;
   color: white;
@@ -173,13 +184,10 @@ aside li {
   }
 }
 
-.middle-last {
-  margin-bottom: 1.5rem;
-}
-
 .middle-click {
   float: left;
   height: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .middle-square {
@@ -196,7 +204,6 @@ aside li {
   display: block;
   height: 75%;
   font-size: .2rem;
-  color: #71685b;
 }
 
 .middle-number {
@@ -211,7 +218,7 @@ aside li {
 .middle-iconlist {
   display: none;
   margin: 0 auto;
-  width: 1.35rem;
+  width: .3rem;
   list-style: none;
 }
 
@@ -243,33 +250,6 @@ aside li {
   transform: scale(0.8);
 }
 
-.middle-icon2 {
-  width: 0.18rem;
-  height: 0.2rem;
-  background: url(../img/TASK13-2.png);
-  background-position: 0 -1.45rem;
-  background-size: .52rem 2.04rem;
-  transform: scale(0.8);
-}
-
-.middle-icon3 {
-  width: 0.26rem;
-  height: 0.25rem;
-  background: url(../img/TASK13-2.png);
-  background-position: 0 -1.65rem;
-  background-size: .52rem 2.04rem;
-  transform: scale(0.8);
-}
-
-.middle-icon4 {
-  width: 0.14rem;
-  height: 0.14rem;
-  background: url(../img/TASK13-2.png);
-  background-position: 0 -1.9rem;
-  background-size: .52rem 2.04rem;
-  transform: scale(0.8);
-}
-
 .middle-click:hover .middle-iconlist {
   display: block;
 }
@@ -291,4 +271,3 @@ aside li {
   background-color: #fbb435;
   border: none;
 }
-/*# sourceMappingURL=task13-2.css.map */

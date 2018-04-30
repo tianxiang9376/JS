@@ -1,2 +1,42 @@
-.head{width:30%;margin:0 auto;overflow:hidden}.box{float:left;padding-bottom:30%;margin:1.5%;width:30%;background:orange;border-radius:5%}.bottom{width:100%}.bottom button{display:block;margin:1rem auto;padding:1rem;width:30%;font-size:1rem;color:orange;background-color:white;box-shadow:none;border:1px solid orange;border-radius:.5rem;text-align:center;text-decoration:none}.bottom button:hover{background-color:orange;color:white}
+@charset "UTF-8";
+.head {
+  width: 30%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.box {
+  float: left;
+  padding-bottom: 30%;
+  /*设置正方形的高度*/
+  margin: 1.5%;
+  /*正方形之间隔开距离*/
+  width: 30%;
+  background: orange;
+  border-radius: 5%;
+}
+
+.bottom {
+  width: 100%;
+}
+
+.bottom button {
+  display: block;
+  margin: 1rem auto;
+  padding: 1rem;
+  width: 30%;
+  font-size: 1rem;
+  color: orange;
+  background-color: white;
+  box-shadow: none;
+  border: 1px solid orange;
+  border-radius: .5rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bottom button:hover {
+  background-color: orange;
+  color: white;
+}
 /*# sourceMappingURL=JS1.css.map */

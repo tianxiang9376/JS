@@ -1,5 +1,5 @@
 function simplegame(){
-	window.location.href="JS2-1-1.htm";
+	window.location.href="JS2-2.htm";
 }
 
 function changelist(){//切换界面

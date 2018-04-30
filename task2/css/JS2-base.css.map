@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,CAAE,CACE,MAAM,CAAE,CAAC,CACT,OAAO,CAAE,CAAC,CAGd,IAAK,CAED,SAAS,CAAE,IAAI,CAGnB,IAAK,CACD,SAAS,CAAE,MAAM",
-"sources": ["JS2-base.scss"],
-"names": [],
-"file": "JS2-base.css"
-}

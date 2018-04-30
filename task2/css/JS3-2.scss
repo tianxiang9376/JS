@@ -1,0 +1,283 @@
+@charset "utf-8";
+
+@mixin imgstyle($x, $y, $width, $height) {
+    width: $width;
+    height: $height;
+    background: url(../img/TASK13-2.png);
+    background-position: $x $y;
+    background-size: .52rem 2.04rem;
+    transform: scale(0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 625%;
+}
+
+body {
+
+    font-size: .16rem;
+    background-color: #29bde0;
+}
+
+a {
+    text-decoration: none;
+    color: #29bde0;
+}
+
+
+/*隐藏checked复选框,aside是html5中的侧边框标签*/
+
+#asidemenu {
+    display: none;
+}
+
+
+/**/
+
+aside {
+    /*侧边栏样式,初始位置为-3rem，隐藏效果*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    height: 100%;
+    /*侧边栏高度与主体页面一致*/
+    left: -30%;
+    width: 30%;
+    color: #29bde0;
+    font-size: .2rem;
+    background-color: white;
+    transition: 0.2s ease-out;
+    /*动画效果*/
+    li {
+        margin: .1rem 0;
+    }
+}
+
+
+/*侧边栏出现与隐藏时主体页面的动画效果，与侧边栏的动画效果一致*/
+
+#wrap {
+    transition: 0.2s ease-out;
+}
+
+
+
+#asidemenu:checked+aside {
+    /*勾选复选框，复选框后面的侧边栏向右移动出现*/
+    left: 0;
+    /*点击按钮即选中checked后,侧边栏位置变为贴着左边,配合ease-out使用,有渐变滑出的效果*/
+}
+
+#asidemenu:checked~#wrap {
+    /*勾选复选框，复选框后面的wrap包裹的页面向左移动*/
+    padding-left: 30%;
+}
+
+.head-top {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    background-color: #29bde0;
+    padding:.1rem 0;
+}
+
+.head {
+    padding-top: .37rem;
+    width: 100%;
+    background-color: #29bde0;
+}
+
+.head-left {
+    width: .25rem;
+    height: .41rem;
+    background: url(../img/JS2-1-1.png);
+    background-position: 0 -.48rem;
+    background-size: .47rem .89rem;
+    display: inline-block;
+    float: left;
+    margin-left: .1rem;
+}
+
+/*.head-top-left {
+    @include imgstyle(0, 0, .39rem, .4rem);
+    display: inline-block;
+    float: left;
+}*/
+
+.head-top-vote {
+    margin: 0 auto;
+    color: white;
+    font-size: .3rem;
+}
+
+.head-top-right {
+    @include imgstyle(0, -.4rem, .36rem, .36rem);
+    display: inline-block;
+    float: right;
+}
+
+
+.head-middle {
+    display: block;
+    padding: .1rem;
+    background-color: #b9e9f5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+
+    p {
+        padding-top: .1rem;
+        /*对齐*/
+        font-size: .2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    button {
+        @include imgstyle(0, -.76rem, .52rem, .52rem);
+        float: right;
+        background-color: #b9e9f5;
+        border: none;
+    }
+}
+
+
+
+.head-middle-triangle {
+    display: block;
+    margin-left: 1rem;
+    width: 0;
+    height: 0;
+    border-color: #b9e9f5 transparent transparent transparent;
+    border-width: .1rem;
+    border-style: solid;
+}
+
+.head-bottom {
+    display: block;
+    margin-left: .3rem;
+    color: white;
+    font-size: .2rem;
+    background-color: #29bde0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.middle {
+    width: 100%;
+}
+
+@media (max-width: 9999px) {
+    .middle-click {
+        width: 33.3%;
+    }
+}
+
+@media (max-width: 720px) {
+    .middle-click {
+        width: 50%;
+    }
+}
+
+@media (max-width:480px) {
+    .middle-click {
+        width: 100%;
+    }
+}
+
+
+.middle-click {
+    float: left;
+    height: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.middle-square {
+    position: relative;
+    margin: 0 auto;
+    width: 1.35rem;
+    height: 1.35rem;
+    text-align: center;
+    background-color: #f5c97b;
+    border: .05rem solid white;
+}
+
+.middle-role {
+    display: block;
+    height: 75%;
+    font-size: .2rem;
+
+}
+
+.middle-number {
+
+    display: block;
+    height: 25%;
+    width: 100%;
+    font-size: .1rem;
+    color: white;
+    background-color: #83b09a;
+}
+
+
+.middle-iconlist {
+    display: none;
+    margin: 0 auto;
+    width: .3rem;
+    list-style: none;
+    li {
+        position: relative;
+        display: inline-block;
+        margin: .1rem auto;
+        width: .3rem;
+        height: .3rem;
+        background-color: white;
+    }
+    span {
+        position: absolute;
+        overflow: auto;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+.middle-icon1 {
+    @include imgstyle(0, -1.28rem, .27rem, .17rem);
+}
+
+
+
+.middle-click:hover .middle-iconlist {
+    display: block;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 1.5rem;
+    text-align: center;
+    background-color: #29bde0;
+    button {
+        margin: .5rem auto;
+        padding: .1rem .5rem;
+        color: white;
+        font-size: .2rem;
+        background-color: #fbb435;
+        border: none;
+    }
+}

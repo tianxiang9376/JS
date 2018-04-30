@@ -32,7 +32,7 @@ document.getElementsByClassName("bottom-btn")[0].addEventListener("click", funct
       alert("玩家人数还没设置好");
     }
     else{
-      window.location.href = './JS2-2.htm';
+      window.location.href = './JS3-1.htm';
     }
 });
 

@@ -1,2 +1,190 @@
-*{margin:0;padding:0}html{font-size:625%}body{font-size:.16rem;background-color:#f0f0f0}#asidemenu{display:none}aside{position:absolute;top:0;bottom:0;height:100%;left:-30%;width:30%;color:#29bde0;font-size:.2rem;background-color:white;transition:0.2s ease-out}aside li{margin:.1rem 0}#wrap{transition:0.2s ease-out}#asidemenu:checked+aside{left:0}#asidemenu:checked ~ #wrap{padding-left:30%}.head{padding:.1rem .1rem;background-color:#29bde0}.head-btnright{width:.34rem;height:.27rem;background:url(../img/TASK13-1.png);background-position:0 0;background-size:.34rem .67rem;display:block}.middle-lastgame{position:relative;margin:.1rem auto;height:1rem;width:80%;text-align:center;background-color:white;border:.01rem solid #c9c9c9}.middle-lastgame a{display:inline-block;width:50%;color:#9a9a9a;font-size:.3rem;line-height:1rem;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.middle-lastgame p{width:.24rem;height:.4rem;background:url(../img/TASK13-1.png);background-position:0 -.27rem;background-size:.34rem .67rem;display:inline-block;position:absolute;top:50%;right:.5rem;transform:translateY(-50%)}.middle-catchghostgame{padding:.1rem 0;color:orange;font-size:.3rem;border-bottom:.01rem solid orange;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.middle{position:relative;margin:.1rem auto;width:80%;text-align:center;background-color:white;border:.01rem solid #c9c9c9;list-style:none}.middle button{width:80%;margin:.1rem auto;padding:.1rem .1rem;background-color:#69d1e9;border:none}.middle p{color:white;font-size:.2rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.middle span{display:block;width:80%;margin:0 auto;vertical-align:center;color:#8d8d8d;font-size:.2rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.middle-circle{margin:0}.footcircle1{display:inline-block;width:.1rem;height:.1rem;border:.01rem solid white;border-radius:45%;background-color:#69d1e9}.footcircle{display:inline-block;width:.1rem;height:.1rem;border:.01rem solid white;border-radius:45%;background-color:#f0f0f0}.footcircle:hover{background-color:#69d1e9}.middle-right-arrow{position:absolute;top:40.5%;right:.1rem;border-top:.2rem solid transparent;border-left:.2rem solid #fbb435;border-bottom:.2rem solid transparent}
+@charset "UTF-8";
+/*不使用的话，无法在scss中使用中文注释*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 625%;
+}
+
+body {
+  font-size: .16rem;
+  background-color: #f0f0f0;
+}
+
+/*隐藏checked复选框,aside是html5中的侧边框标签*/
+#asidemenu {
+  display: none;
+}
+
+/**/
+aside {
+  /*侧边栏样式,初始位置为-3rem，隐藏效果*/
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  /*侧边栏高度与主体页面一致*/
+  left: -30%;
+  width: 30%;
+  color: #29bde0;
+  font-size: .2rem;
+  background-color: white;
+  transition: 0.2s ease-out;
+  /*动画效果*/
+}
+
+aside li {
+  margin: .1rem 0;
+}
+
+/*侧边栏出现与隐藏时主体页面的动画效果，与侧边栏的动画效果一致*/
+#wrap {
+  transition: 0.2s ease-out;
+}
+
+#asidemenu:checked + aside {
+  /*勾选复选框，复选框后面的侧边栏向右移动出现*/
+  left: 0;
+  /*点击按钮即选中checked后,侧边栏位置变为贴着左边,配合ease-out使用,有渐变滑出的效果*/
+}
+
+#asidemenu:checked ~ #wrap {
+  /*勾选复选框，复选框后面的wrap包裹的页面向左移动*/
+  padding-left: 30%;
+}
+
+.head {
+  padding: .1rem .1rem;
+  background-color: #29bde0;
+}
+
+.head-btnright {
+  width: 0.34rem;
+  height: 0.27rem;
+  background: url(../img/TASK13-1.png);
+  background-position: 0 0;
+  background-size: .34rem .67rem;
+  display: block;
+}
+
+.middle-lastgame {
+  position: relative;
+  margin: .1rem auto;
+  height: 1rem;
+  width: 80%;
+  text-align: center;
+  background-color: white;
+  border: .01rem solid #c9c9c9;
+}
+
+.middle-lastgame a {
+  display: inline-block;
+  width: 50%;
+  color: #9a9a9a;
+  font-size: .3rem;
+  line-height: 1rem;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.middle-lastgame p {
+  width: 0.24rem;
+  height: 0.4rem;
+  background: url(../img/TASK13-1.png);
+  background-position: 0 -0.27rem;
+  background-size: .34rem .67rem;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: .5rem;
+  transform: translateY(-50%);
+}
+
+.middle-catchghostgame {
+  padding: .1rem 0;
+  color: orange;
+  font-size: .3rem;
+  border-bottom: .01rem solid orange;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.middle {
+  position: relative;
+  margin: .1rem auto;
+  width: 80%;
+  text-align: center;
+  background-color: white;
+  border: .01rem solid #c9c9c9;
+  list-style: none;
+}
+
+.middle button {
+  width: 80%;
+  margin: .1rem auto;
+  padding: .1rem .1rem;
+  background-color: #69d1e9;
+  border: none;
+}
+
+.middle p {
+  color: white;
+  font-size: .2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.middle span {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  vertical-align: center;
+  color: #8d8d8d;
+  font-size: .2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.middle-circle {
+  margin: 0;
+}
+
+.footcircle1 {
+  display: inline-block;
+  width: .1rem;
+  height: .1rem;
+  border: .01rem solid white;
+  border-radius: 45%;
+  background-color: #69d1e9;
+}
+
+.footcircle {
+  display: inline-block;
+  width: .1rem;
+  height: .1rem;
+  border: .01rem solid white;
+  border-radius: 45%;
+  background-color: #f0f0f0;
+}
+
+.footcircle:hover {
+  background-color: #69d1e9;
+}
+
+.middle-right-arrow {
+  position: absolute;
+  top: 40.5%;
+  right: .1rem;
+  border-top: .2rem solid transparent;
+  border-left: .2rem solid #fbb435;
+  border-bottom: .2rem solid transparent;
+}
 /*# sourceMappingURL=task13-1.css.map */

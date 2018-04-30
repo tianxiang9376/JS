@@ -1,2 +1,205 @@
-body{background:#29bde0}header{display:flex;justify-content:space-between;align-items:center;padding:.1rem;border-bottom:1px solid white}.head-word{color:white;font-size:.2rem}.head-left{width:.36rem;height:.41rem;background:url(../img/JS2-1-1.png);background-position:0 -.48rem;background-size:.47rem .89rem;display:inline-block}.head-right{width:.36rem;height:.36rem;background:url(../img/close.png);background-position:0 0;background-size:.36rem .36rem;display:inline-block}main{margin:.1rem auto;padding:.2rem;text-align:center}.middle-back{position:relative;display:flex;align-items:center;justify-content:center;height:4rem;background:#ffedc5;border:2px solid #fff}.middle-round{position:absolute;top:-.25rem;color:#f56b81;text-align:center;border:3px solid #ffedc5;width:.4rem;height:.4rem;line-height:.4rem;border-radius:50%;background:#fff}#middle-showrole{display:none;margin-bottom:1rem h4;margin-bottom-text-align:center;margin-bottom-font-size:.2rem;margin-bottom-margin-bottom:0;margin-bottom-color:#29bde0}#watch{width:100%;font-size:.2rem;text-align:center;color:#fff;margin:.4rem 0;padding:.1rem;background:#fbb435;border:0}@media screen and (max-width: 350px){.middle-back img{width:1.5rem}}
-/*# sourceMappingURL=JS2-2.css.map */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 625%;
+}
+
+body {
+  font-size: .16rem;
+  background: #f0f0f0;
+}
+
+.center {
+  text-align: center;
+}
+
+header {
+  line-height: .4rem;
+  box-sizing: border-box;
+  padding: .1rem;
+  overflow: hidden;
+  background-color: #29bde0;
+  text-align: center;
+}
+
+.head-word {
+  height: .4rem;
+  font-size: .2rem;
+  color: white;
+}
+
+.head-left {
+  width: 0.25rem;
+  height: 0.41rem;
+  background: url(../img/JS2-1-1.png);
+  background-position: 0 -0.48rem;
+  background-size: .47rem .89rem;
+  display: inline-block;
+  float: left;
+}
+
+.head-right {
+  width: 0.47rem;
+  height: 0.47rem;
+  background: url(../img/JS2-1-1.png);
+  background-position: 0 0;
+  background-size: .47rem .89rem;
+  display: inline-block;
+  float: right;
+}
+
+.middle-style {
+  box-sizing: border-box;
+  margin: .1rem;
+  padding: .1rem;
+  background-color: white;
+}
+
+.middle-list {
+  display: inline-block;
+  width: 80%;
+  height: 1rem;
+  margin: 0 auto;
+  vertical-align: top;
+  list-style: none;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.middle-list li {
+  display: inline-block;
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  color: #b6b6b6;
+  vertical-align: middle;
+}
+
+.middle-list p {
+  display: inline-block;
+}
+
+.middle-setplayer {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 1rem;
+  padding: .1rem;
+  overflow: auto;
+  font-size: .2rem;
+  border-right: 1px solid #ccc;
+  writing-mode: vertical-lr;
+}
+
+.list-square {
+  width: .1rem;
+  padding-bottom: .1rem;
+  background-color: red;
+  display: inline-block;
+  margin-right: .1rem;
+}
+
+.middle-set {
+  color: #29bde0;
+  background: none;
+  text-dectrion: none;
+  box-shadow: none;
+  border: none;
+  font-size: .2rem;
+}
+
+.middle-keyword {
+  display: block;
+  color: #b6b6b6;
+}
+
+.bottom {
+  box-sizing: border-box;
+  margin: .1rem;
+  background-color: #fab344;
+  text-align: center;
+}
+
+.bottom-btn {
+  margin: .1rem 0;
+  width: 100%;
+  font-size: .2rem;
+  color: white;
+  background-color: #fab344;
+  border: none;
+}
+
+#player {
+  text-align: center;
+  width: .3rem;
+  color: #fbb435;
+  font-size: .2rem;
+  border: 0;
+  background: #f4f5f5;
+}
+
+input[type="range"] {
+  display: block;
+  -webkit-appearance: none;
+  background-color: #fbb435;
+  height: 2px;
+  width: 70%;
+  border-radius: 5px;
+  outline: 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 30px;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #fbb435;
+  background: url(../img/slider.png);
+  background-size: cover;
+}
+
+.bot1 {
+  display: inline-block;
+  width: .1rem;
+  height: .1rem;
+  margin-right: .1rem;
+  background: red;
+}
+
+.bot2 {
+  display: inline-block;
+  width: .1rem;
+  height: .1rem;
+  margin-right: .1rem;
+  background: green;
+}
+
+.btn-left {
+  background: #fff;
+  outline: none;
+  border: 1px solid #ccc;
+  background: url(../img/less.png);
+  width: .3rem;
+  height: .3rem;
+  transform: scale(0.5);
+}
+
+.btn-right {
+  background: #fff;
+  outline: none;
+  border: 1px solid #ccc;
+  background: url(../img/add.png);
+  width: .3rem;
+  height: .3rem;
+  transform: scale(0.5);
+}
+
+.slider-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: .1rem 0;
+}

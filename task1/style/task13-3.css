@@ -1,2 +1,140 @@
-*{margin:0;padding:0}html{font-size:625%}body{font-size:.16rem}.head{position:fixed;top:0;padding:1%;z-index:999;overflow:hidden;width:98%;text-align:center;background-color:#29bde0;border-bottom:1px solid white}.head-gameend{color:white;font-size:.3rem}.head-left{width:.51rem;height:.42rem;background:url(../img/TASK13-3.png);background-position:0 0;background-size:3.51rem 2.87rem;transform:scale(0.8);float:left}.head-right{width:.4rem;height:.4rem;background:url(../img/TASK13-3.png);background-position:0 -.425rem;background-size:3.51rem 2.87rem;transform:scale(0.8);float:right}.top{width:100%;padding:1rem 0;background-color:#29bde0}.top-img{width:3.51rem;height:2.05rem;background:url(../img/TASK13-3.png);background-position:0 -.82rem;background-size:3.51rem 2.87rem;transform:scale(0.8);display:block;margin:0 auto}.top-win{display:block;margin:0 auto;width:50%;color:#ffc865;font-size:.3rem}.middle-list{margin:0 auto;width:50%;color:white;font-size:.2rem;list-style:none}.middle-right{margin-right:.1rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.middle-gameflow{width:100%;background-color:white}.middle-gameflowlist{width:100%;list-style:none}.middle-word1{font-size:.2rem}.middle-word2{float:right;color:#c7c7c7}.middle-word3{font-size:.15rem}.bottom{position:fixed;bottom:0;overflow:hidden;width:100%;text-align:center;background:rgba(41,189,224,0.5)}.bottom button{padding:.1rem;margin:.3rem;font-size:.15rem;color:white;border-radius:.1rem;border:none}.bottom .bottom-colorleft{background-color:#f66f6f}.bottom-colorright{background-color:#fbb435}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 625%;
+}
+
+body {
+  font-size: .16rem;
+}
+
+.head {
+  position: fixed;
+  top: 0;
+  padding: 1%;
+  z-index: 999;
+  overflow: hidden;
+  width: 98%;
+  text-align: center;
+  background-color: #29bde0;
+  border-bottom: 1px solid white;
+}
+
+.head-gameend {
+  color: white;
+  font-size: .3rem;
+}
+
+.head-left {
+  width: 0.51rem;
+  height: 0.42rem;
+  background: url(../img/TASK13-3.png);
+  background-position: 0 0;
+  background-size: 3.51rem 2.87rem;
+  transform: scale(0.8);
+  float: left;
+}
+
+.head-right {
+  width: 0.4rem;
+  height: 0.4rem;
+  background: url(../img/TASK13-3.png);
+  background-position: 0 -0.425rem;
+  background-size: 3.51rem 2.87rem;
+  transform: scale(0.8);
+  float: right;
+}
+
+.top {
+  width: 100%;
+  padding: 1rem 0;
+  background-color: #29bde0;
+}
+
+.top-img {
+  width: 3.51rem;
+  height: 2.05rem;
+  background: url(../img/TASK13-3.png);
+  background-position: 0 -0.82rem;
+  background-size: 3.51rem 2.87rem;
+  transform: scale(0.8);
+  display: block;
+  margin: 0 auto;
+}
+
+.top-win {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  color: #ffc865;
+  font-size: .3rem;
+}
+
+.middle-list {
+  margin: 0 auto;
+  width: 50%;
+  color: white;
+  font-size: .2rem;
+  list-style: none;
+}
+
+.middle-right {
+  margin-right: .1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.middle-gameflow {
+  width: 100%;
+  background-color: white;
+}
+
+.middle-gameflowlist {
+  width: 100%;
+  list-style: none;
+}
+
+.middle-word1 {
+  font-size: .2rem;
+}
+
+.middle-word2 {
+  float: right;
+  color: #c7c7c7;
+}
+
+.middle-word3 {
+  font-size: .15rem;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  background: rgba(41, 189, 224, 0.5);
+}
+
+.bottom button {
+  padding: .1rem;
+  margin: .3rem;
+  font-size: .15rem;
+  color: white;
+  border-radius: .1rem;
+  border: none;
+}
+
+.bottom
+.bottom-colorleft {
+  background-color: #f66f6f;
+}
+
+.bottom-colorright {
+  background-color: #fbb435;
+}
 /*# sourceMappingURL=task13-3.css.map */

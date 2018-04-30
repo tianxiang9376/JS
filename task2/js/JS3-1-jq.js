@@ -30,12 +30,12 @@ $("#watch").click(function () {
     // 点击次数偶数次
     else {
         if ($('#watch').text() == "法官查看") {
-            window.location.href = 'JS2-3.html';
+            window.location.href = 'JS3-2.htm';
         } else {
             $("#middle-showrole").hide();
             $("#middle-show").show();
             if (num > player.length) {
-                window.location.href = 'JS2-3.html';
+                window.location.href = 'JS3-2.htm';
             } else {
                 $('#watch').text("查看 " + (num) + "号身份");
                 $('.middle-round').text(num);

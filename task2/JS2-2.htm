@@ -5,33 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>查看身份</title>
-    <link rel="stylesheet" type="text/css" href="css/JS2-base.css">
-    <link rel="stylesheet" type="text/css" href="css/JS2-2.css">
-</head>
+    <title>参数设置</title>
 
-<body>
-    <header>
-        <a href="../task2/JS2-1-1.htm" class="head-left">
-        </a>
-        <span class="head-word">查看身份</span>
-        <a class="head-right"></a>
-    </header>
-    <main>
-        <div class="middle-back">
-            <span class="middle-round " id="middle-num"></span>
-            <img id="middle-show" src="./img/task3-should.png" alt="">
-            <div id="middle-showrole">
-                <img src="./img/task3-pass.png" alt="">
-                <h4 id="middle-who"></h4>
-            </div>
+    <link rel="stylesheet" type="text/css" href="css/JS2-2.css">
+
+</head>
+<header>
+    <a href="../task2/JS2-1.htm" class="head-left">
+    </a>
+    <span class="head-word">参数设置</span>
+    <span class="head-right"></span>
+</header>
+<main>
+    <div class="middle-style">
+        <span class="middle-setplayer">玩家配比</span>
+        <ul class="middle-list" id="role">
+        </ul>
+    </div>
+    <div class="middle-style center">
+        <button class="middle-set" onclick="setrole()">点击设置</buton>
+    </div>
+    <div class="middle-style">
+        <span class="middle-keyword">水民词组</span>
+        <span class="middle-keyword">幽灵词组</span>
+    </div>
+    <div class="middle-style">
+        <div class="center">
+            <span>玩家数量</span>
+            <input id="player" type="text" value="4" />
+            <span>人</span>
         </div>
-        <button id="watch">查看 <span id="middle-num"></span>
-            号身份</button>
-    </main>
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/JS2-2-jq.js"></script>
-    <!--<script src="js/JS2-2-ys.js"></script>-->
+        <div class="slider-bottom">
+        <button class="btn-left" onclick="less()
+        "></button>
+        <input id="range" type="range" min="4" max="18" value="4" step="1" onclick="change()" onchange="change()">
+        <!--oninput与onchange事件可以实时改变num的数值-->
+        <button class="btn-right" onclick="add()"></button>
+        </div>
+    </div>
+    <div class="bottom">
+        <button class="bottom-btn">发牌</button>
+    </div>
+</main>
+ <script type="text/javascript" src="js/JS2-2.js"></script><!--血泪教训，导入JS要注意位置-->
+<body>
 </body>
 
 </html>

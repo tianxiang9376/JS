@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任务三法官查看页面</title>
+    <link rel="stylesheet" type="text/css" href="css/JS3-2.css">
+</head>
+
+<body>
+  
+    <main>
+        <div class="head-top">
+            <p class="head-top-right"></p>
+            <a href="../task2/JS3-1.htm" class="head-left">
+            </a>
+            <p class="head-top-vote">法官查看</p>
+        </div>
+        <div class="head">
+            <div class="head-middle">
+                <audio src="task7-2.mp3" controls="controls" preload id="music" hidden></audio>
+                <button id="a" onclick="a()" type="button">
+                </button>
+                <script>
+                function a() {
+                    var audio = document.getElementById('music');
+                    if (audio.paused) {
+                        audio.play();
+                    } else {
+                        audio.pause();
+                    }
+                }
+                </script>
+                <p>发言讨论结束，大家请投票</p>
+            </div>
+            <span class="head-middle-triangle"></span>
+            <span class="head-bottom">点击得票数最多人的头像</span>
+        </div>
+        <div class="middle">
+        </div>
+        <div class="bottom">
+            <a href="JS4-1.htm"><button>确定</button></a>
+        </div>
+    </main>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/JS3-2.js"></script>
+</body>
+
+</html>
