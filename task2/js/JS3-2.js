@@ -12,24 +12,24 @@ for (i = 0; i < player.length; i++) {
 
 
 // 对象创建器，a是角色，b是状态死活
-function $sta(a, d) {
+function $sta(a, b) {
     this.role = a;
-    this.state = d;
+    this.state = b;
 }
-//游戏开始时，记录所有角色的状态都是存活,alive dead缩写ad
-var ad = [];
+//游戏开始时，记录所有角色的状态都是存活
+var playerstate = [];
 for (i = 0; i < identity.length; i++) {
     if (identity[i] == "平民") {
-        ad[i] = new $sta("平民", "alive");
+        playerstate[i] = new $sta("平民", "alive");
 
     } else {
-        ad[i] = new $sta("杀手", "alive");
+        playerstate[i] = new $sta("杀手", "alive");
     }
 }
 //把角色的存活状态转换为字符串放入浏览器缓存
-var state = JSON.stringify(ad);
-sessionStorage.ab = state;
+var abc = JSON.stringify(playerstate);
+sessionStorage.playerstate = abc;
 //把所有玩家的序号和角色显示出来
-for (a = 0; a < ad.length; a++) {
-    $(".middle").append('<div class="middle-click"><div class="middle-square"><p class="middle-role">'+ad[a].role+'</p><p class="middle-number">'+(a+1)+'号</p></div><ul class="middle-iconlist"><li><span class="middle-icon1"></span></li></ul></div>');
+for (a = 0; a < playerstate.length; a++) {
+    $(".middle").append('<div class="middle-click"><div class="middle-square"><p class="middle-role">'+playerstate[a].role+'</p><p class="middle-number">'+(a+1)+'号</p></div><ul class="middle-iconlist"><li><span class="middle-icon1"></span></li></ul></div>');
 }

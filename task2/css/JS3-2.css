@@ -271,3 +271,7 @@ aside li {
   background-color: #fbb435;
   border: none;
 }
+
+.backgray {
+  background-color: #83b09a !important;
+}

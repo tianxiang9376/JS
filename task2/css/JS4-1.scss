@@ -19,7 +19,6 @@ html {
 
 body {
     margin: .7rem 0;
-
     font-size: .16rem;
     background-color: #d8e3e6;
 }
@@ -29,8 +28,8 @@ a {
     color: #29bde0;
 }
 
-main{
-    padding:0 .2rem;
+main {
+    padding: 0 .2rem;
 }
 
 .head-top {
@@ -74,12 +73,11 @@ main{
     color: #29bde0;
     text-align: center;
     border: 1px solid black;
-    border-bottom: none;
     background: white;
-    span{
+    span {
         display: inline;
     }
-    p{
+    p {
         display: inline;
     }
 }
@@ -89,6 +87,7 @@ main{
     margin: 0 auto;
     padding: 0;
     border: 1px solid black;
+    border-top:none;
     background: white;
 }
 
@@ -101,13 +100,13 @@ main{
 
 .right {
     width: 100%;
-    padding:.2rem;
+    padding: .2rem;
 }
 
 .middle-step-word {
     display: block;
-    float:right;
-    width:85%;
+    float: right;
+    width: 85%;
     margin: .1rem auto;
     position: relative;
     padding: .1rem;
@@ -118,8 +117,6 @@ main{
     outline: none;
     border: 0;
 }
-
-
 
 .moon {
     position: absolute;
@@ -135,6 +132,7 @@ main{
     top: 50%;
     transform: translateY(-50%);
     left: -.15rem;
+    left: -.15rem;
     width: 0;
     height: 0;
     border-bottom: .1rem solid transparent;
@@ -142,7 +140,7 @@ main{
     border-top: .1rem solid transparent;
 }
 
-footer{
+footer {
     position: fixed;
     bottom: 0;
     z-index: 999;
@@ -150,11 +148,11 @@ footer{
     text-align: center;
     overflow: hidden;
     background-color: #29bde0;
-    padding:.1rem;
+    padding: .1rem;
     background-color: rgba(41, 189, 224, 0.3);
 }
 
-.footer-end{
+.footer-end {
     background-color: #f66f6f;
     border: 0px;
     height: .4rem;
@@ -166,7 +164,7 @@ footer{
     float: left;
 }
 
-.footer-record{
+.footer-record {
     border: 0px;
     height: .4rem;
     width: 40%;
@@ -175,4 +173,30 @@ footer{
     margin-left: 5%;
     margin-top: .1rem;
     background-color: #fbb435;
+}
+
+//JS调用样式
+.backgroundcolor {
+    background-color: #706d67
+}
+
+.lost {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -.15rem;
+    left: -.15rem;
+    width: 0;
+    height: 0;
+    border-bottom: .1rem solid transparent;
+    border-top: .1rem solid transparent;
+    border-right: .15rem solid #706d67!important;
+}
+
+.killed {
+    display: block;
+    float: right;
+    width: 85%;
+    text-align: center;
 }
