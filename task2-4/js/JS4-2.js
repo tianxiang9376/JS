@@ -1,6 +1,5 @@
 "use strict"
-//读取角色状态名单,缓存了js42给第四步用
-
+//读取角色状态名单
 var playerstate = JSON.parse(window.sessionStorage.getItem('playerstate'));
 //列出角色状态名单
 for (a = 0; a < playerstate.length; a++) {

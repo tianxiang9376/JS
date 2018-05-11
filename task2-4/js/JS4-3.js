@@ -13,7 +13,7 @@ $(".killalive").text(kalive);
 $(".commoneralive").text(calive);
 //判断哪一方胜利
 if (kalive === 0) {
-    
+
     $(".win1").text("平民胜利");
     $(".win2").text("平民");
 } else {
@@ -26,10 +26,15 @@ if (kalive === 0) {
 
 //创建天数的方框
 for (var w = 0; w < day; w++) {
-    $(".gameday").eq(w).text(w + 1);
     if (w > 0) {
         $(".middle-gameflow").first().clone().prependTo($(".middle-day")); //根据游戏天数设置天数的方框
     }
+
+}
+//先创建天数的方框，再修改天数
+for (var s = 0; s < day; s++) {
+    $(".gameday").eq(s).text(s + 1);
+
 }
 
 for (var c = 0; c < dead.length; c++) {
