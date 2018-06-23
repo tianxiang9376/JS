@@ -1,0 +1,76 @@
+<div class="main-right col-xs-12 col-sm-12 col-md-10 col-lg-10">
+    <div class="main-right-head">
+        <div class="first-line">
+            <div class="main-right-head-box">
+                <span>时&nbsp;&nbsp;&nbsp;间</span>
+                <input type="text" size="5" />
+                <span>-</span>
+                <input type="text" size="5" />
+            </div>
+            <div class="main-right-head-box">
+                <span>标&nbsp;&nbsp;&nbsp;题</span>
+                <input type="text" size="12" />
+            </div>
+            <div class="main-right-head-box">
+                <span>创建者</span>
+                <input type="text" size="12" />
+            </div>
+        </div>
+        <div class="second-line">
+            <div class="main-right-head-box">
+                <span>状&nbsp;&nbsp;&nbsp;态</span>
+                <select>
+                    <option value="全部">全部</option>
+                    <option value="草稿">草稿</option>
+                    <option value="上线">上线</option>
+                </select>
+            </div>
+            <div class="main-right-head-box">
+                <span>类&nbsp;&nbsp;&nbsp;型</span>
+                <select>
+                    <option value="全部">全部</option>
+                    <option value="首页Banner">首页Banner</option>
+                    <option value="找职位Banner">找职位Banner</option>
+                    <option value="找精英Banner">找精英Banner</option>
+                    <option value="行业大图">行业大图</option>
+                </select>
+            </div>
+            <div class="main-right-head-box">
+                <button class="btn-search" type="button">搜索</button>
+                <button class="btn-clear" type="button">清空</button>
+            </div>
+        </div>
+    </div>
+    <div class="main-right-middle">
+        <div class="main-right-middle-tittle">
+            <span>Article管理</span>
+            <div class="main-right-left">
+                <button>保存排序</button>
+                <a href="#!addlist">+新增</a>
+            </div>
+        </div>
+        <div class="main-right-middle-info" ng-controller="biubiubiu">
+            <div class="info-tittle">
+                <span>序号</span>
+                <span>标题</span>
+                <span>图片</span>
+                <span>类型</span>
+                <span>创建者</span>
+                <span>创建时间</span>
+                <span>修改时间</span>
+                <span>状态</span>
+                <span>操作</span>
+            </div>
+            <div class="main-right-info-list"  ng-repeat="x in form" >
+                <span></span>
+                <span>{{x.title}}</span>
+                <span><img src="{{x.img}}"/></span>
+                <span>{{x.type|typeName}}</span>
+                <span>{{x.author}}</span>
+                <span>{{x.createAt}}</span>
+                <span>{{x.updateAt}}</span>
+                <span>{{x.status|statusName}}</span>
+            </div>
+        </div>
+    </div>
+</div>
