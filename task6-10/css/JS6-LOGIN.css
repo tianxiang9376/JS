@@ -15,6 +15,10 @@ body {
   box-sizing: border-box;
 }
 
+form {
+  padding: .1rem;
+}
+
 main {
   position: absolute;
   top: 0;
@@ -25,20 +29,15 @@ main {
   height: 3rem;
   width: 3rem;
   text-align: center;
-  background-color: #73dbdb;
+  background-color: #20ce77;
   border: 1px solid #aaa;
   border-radius: 5px;
-}
-
-.title {
-  margin-top: .1rem;
-  font-size: .3rem;
-  color: green;
 }
 
 .wrap {
   list-style: none;
   margin-right: .4rem;
+  margin-bottom: .1rem;
 }
 
 .wrap img {
@@ -57,7 +56,6 @@ main {
   border: none;
   outline: none;
   font-size: .16rem;
-  background-color: #73dbdb;
 }
 
 .wrap input[type="password"] {
@@ -68,25 +66,19 @@ main {
   border: none;
   outline: none;
   font-size: .16rem;
-  background-color: #73dbdb;
 }
 
 .login {
-  width: 60%;
-  padding: .1rem 0;
+  padding: .1rem .4rem;
   font-size: .2rem;
   color: white;
   border: none;
   border-radius: 5px;
-  background-color: green;
+  background-color: blue;
   box-shadow: none;
   outline: none;
 }
 
-.info{
-  color:red;
-}
-
-.error{
-  color:red;
+.PointOut {
+  color: red;
 }

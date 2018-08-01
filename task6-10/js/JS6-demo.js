@@ -1,18 +1,22 @@
-var app = angular.module('myapp', []);
-app.controller('biubiubiu', function ($scope, $http) {
-    $scope.click = function () {
-        $http({
-            method: 'GET',
-            url: '/carrots-admin-ajax/a/article/search',
-            headers: {
-                'Content-Type': undefined
-            }
-        }).then(function successCallback(response) {
-       
-            $scope.list = response.data.data.articleList;
-        }, function errorCallback(response) {
-            $scope.wrong = "wrong!";
+myApp.controller("demo", function ($scope, $http,$state, $stateParams) {
+    $http({
+        method: 'GET',
+        url: '/carrots-admin-ajax/a/article/search',
+        params: {
+            page: $stateParams.page,
+        }
+    }).then(function(response) {
+        $scope.item = response.data.data.articleList;
+        $scope.bigTotalItems = response.data.data.total;
+        $scope.currentPage = $stateParams.page;
+        $scope.size = response.data.data.size;
+    });
+    $scope.maxSize = 3;
+    $scope.page = function () {
+        $state.go("backstage.demo", {
+            page: $scope.currentPage
+        }, {
+            reload: true
         });
     }
-});
-
+})

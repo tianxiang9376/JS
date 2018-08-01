@@ -1,19 +1,23 @@
-var app = angular.module('myapp', ['ngMessages']);
-app.controller('biubiubiu', function ($scope, $http) {
-    $scope.formData = {}; 
-    $scope.click = function () {
+myApp.controller("login", function ($scope, $http, $state) {
+    //控制器名称login,来自于JS6-APP.JS
+    $scope.login = function () {
         $http({
-            method: 'POST',
+            method: "POST",
             url: '/carrots-admin-ajax/a/login',
-            data: $scope.formData,
-            headers: {
-                'Content-Type': undefined
+            params: {
+                name: $scope.user,
+                pwd: $scope.pwd
+            },
+            header: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            } //表头
+        }).then(function (xhr) {
+            if (xhr.data.code === 0) {
+                $state.go("backstage");
+            } else {
+                $scope.login_info = xhr.data.message;
             }
-        }).then(function successCallback(response) {
-            window.location.href = "JS6-BACKSTAGE.html";
-        }, function errorCallback(response) {
-            // 请求失败执行代码
-        });
+        })
     }
-});
+})
 

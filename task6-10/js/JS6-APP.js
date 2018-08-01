@@ -1,73 +1,45 @@
-"use strict"
-var nav = angular.module("myApp", ["ui.router"]);
-
-nav.config(function ($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.when("", "/asidenav");
-
-    $stateProvider
-        .state("asidenav", {
-            url: "/asidenav",
-            templateUrl: "asidenav.html"
-        })
-        .state("asidenav.list", {
-            url: "/list",
-            templateUrl: "list.html"
-        })
-});
-
-nav.controller('biubiubiu', function ($scope, $http) {
-    $http({
-        method: 'GET',
-        url: '/carrots-admin-ajax/a/article/search',
-        headers: {
-            'Content-Type': undefined
-        }
-    }).then(function successCallback(response) {
-        $scope.form = response.data.data.articleList;
-    }, function errorCallback(response) {
-        $scope.wrong = "wrong!";
+var myApp = angular.module("myApp", ['ui.router','ngAnimate', 'ngSanitize', 'ngMessages','ui.bootstrap','ngFileUpload']);
+// var myApp = angular.module("myApp", [&apos;ui.router&apos;]);
+// 这里叫做App模块，这将告诉HTML页面这是一个AngularJS作用的页面，它的内容由AngularJS引擎来解释。&apos引号作用'',区分
+// 路由
+myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    // 清除感叹号
+    $locationProvider.hashPrefix('');
+    //更改url格式配置为html5，去掉#号,这个没用
+    $locationProvider.html5Mode({
+        enable: true,
+        requireBase: false
     });
+    // 默认导入页面
+    $urlRouterProvider.otherwise("login");
+    // 这一行定义了会在main.html页面第一个显示出来的状态，作为页面被加载好以后第一个被使用的路由.
+    $stateProvider
+        .state("login", {
+            url: "/login",
+            templateUrl: "JS6-LOGIN.html",
+            controller: "login"
+        })
+        .state("backstage", {
+            url: "/backstage",
+            templateUrl: "JS6-BACK.html"
+        })
+        .state("backstage.list", {
+            //Article列表页+++
+            url: '/list?page$status$type$startAt$endAt$author$title',
+            templateUrl: "JS6-LIST.html",
+            controller: "list"
+        })
+        .state("backstage.add", {
+            //列表编辑页面
+            url: '/add?id',
+            templateUrl: "JS6-ADD.html",
+            controller: "add"
+        })
+        /*一个测试页面
+        .state("backstage.demo", {
+            //Article列表页+++
+            url: '/demo?page$status$type$startAt$endAt$author$title',
+            templateUrl: "demo2.html",
+            controller: "demo"
+        })*/
 });
-
-nav.filter("typeName", function () {
-    return function (type) {
-        var typeName = "";
-        if (type == "0") {
-            typeName = "首页banner";
-        }
-        if (type == "1") {
-            typeName = "找职位banner";
-        }
-        if (type == "2") {
-            typeName = "找精英banner";
-        }
-        if (type == "3") {
-            typeName = "行业大图";
-        }
-        return typeName;
-    }
-})
-
-nav.filter("statusName", function () {
-    return function (status) {
-        var statusName = "";
-       
-        if (status == "1") {
-            statusName = "草稿";
-        }
-        if (status == "2") {
-            statusName = "上线";
-        }
-        return statusName;
-    }
-})
-
-
-window.onload = function () {
-    $(".nav2").slideToggle();
-    $(".nav-click").click(function () {
-        $(".nav2").hide();
-        $(this).next(".nav2").slideToggle();
-    })
-}
