@@ -25,7 +25,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         })
         .state("backstage.list", {
             //Article列表页+++
-            url: '/list?page$status$type$startAt$endAt$author$title',
+            url: '/list?page$status$type$startAt$endAt$author$title$size',
             templateUrl: "JS6-LIST.html",
             controller: "list"
         })

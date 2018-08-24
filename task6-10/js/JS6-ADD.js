@@ -48,16 +48,15 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
 
     // 编辑
     if ($stateParams.id) {
-
         $scope.listTitle = "编辑Article";
-
+        if($scope.img_view){
+            $scope.checkimg = true;
+        }
         // 编辑渲染数据
         $http({
             method: 'get',
             url: '/carrots-admin-ajax/a/article/' + $stateParams.id,
         }).then(function (result) {
-
-            console.log(result.data.data);
             var singleList = result.data.data.article;
             $scope.title = singleList.title;
             $scope.type = singleList.type;
@@ -72,59 +71,67 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
         })
 
         // 编辑的上线
-        $scope.onLine = function () {
-            //把富文本编辑器中的文本提取出来
-            var edtxt = editor.txt.text();
-            $http({
-                method: 'put',
-                url: '/carrots-admin-ajax/a/u/article/' + $stateParams.id,
-                params: {
-                    title: $scope.title,
-                    type: $scope.type,
-                    status: 2,
-                    img: $scope.img_view,
-                    //上传的content等于富文本编辑器中的内容
-                    content: edtxt,
-                    url: $scope.link,
-                    createAt: $scope.createAt,
-                    // industry: $scope.industry
-                },
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            }).then(function (resp) {
-                console.log(resp);
-                if (resp.data.code === 0) {
-                    $state.go('backstage.list');
-                }
-            })
+        $scope.online = function () {
+            if ($scope.title = "" || $scope.type === undefined || $scope.img_view === undefined || $scope.link === undefined) {
+                alert("图片没有上传！")
+            } else {
+                //把富文本编辑器中的文本提取出来
+                var edtxt = editor.txt.text();
+                $http({
+                    method: 'put',
+                    url: '/carrots-admin-ajax/a/u/article/' + $stateParams.id,
+                    params: {
+                        title: $scope.title,
+                        type: $scope.type,
+                        status: 2,
+                        img: $scope.img_view,
+                        //上传的content等于富文本编辑器中的内容
+                        content: edtxt,
+                        url: $scope.link,
+                        createAt: $scope.createAt,
+                        // industry: $scope.industry
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }).then(function (resp) {
+                    console.log("上传成功");
+                    if (resp.data.code === 0) {
+                        $state.go('backstage.list');
+                    }
+                })
+            }
         }
         // 编辑的存为草稿
         $scope.save = function () {
-            //把富文本编辑器中的文本提取出来
-            var edtxt = editor.txt.text();
-            $http({
-                method: 'put',
-                url: '/carrots-admin-ajax/a/u/article/' + $stateParams.id,
-                params: {
-                    title: $scope.title,
-                    type: $scope.type,
-                    status: 1,
-                    img: $scope.img_view,
-                    content: edtxt,
-                    url: $scope.link,
-                    createAt: $scope.createAt,
-                    // industry: $scope.industry
-                },
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            }).then(function (resp) {
-                console.log(resp);
-                if (resp.data.code === 0) {
-                    $state.go('backstage.list');
-                }
-            })
+            if ($scope.title = undefined  || $scope.type === undefined || $scope.img_view === undefined || $scope.link === undefined) {
+                alert("图片没有上传！")
+            } else {
+                //把富文本编辑器中的文本提取出来
+                var edtxt = editor.txt.text();
+                $http({
+                    method: 'put',
+                    url: '/carrots-admin-ajax/a/u/article/' + $stateParams.id,
+                    params: {
+                        title: $scope.title,
+                        type: $scope.type,
+                        status: 1,
+                        img: $scope.img_view,
+                        content: edtxt,
+                        url: $scope.link,
+                        createAt: $scope.createAt,
+                        // industry: $scope.industry
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }).then(function (resp) {
+                    console.log(resp);
+                    if (resp.data.code === 0) {
+                        $state.go('backstage.list');
+                    }
+                })
+            }
         }
     }
 
@@ -132,71 +139,84 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
     else {
         $scope.listTitle = "新增Article";
         // 新增的立即上线
-        $scope.onLine = function () {
-            //把富文本编辑器中的文本提取出来
-            var edtxt = editor.txt.text();
-            $http({
-                method: 'post',
-                url: '/carrots-admin-ajax/a/u/article/',
-                params: {
-                    title: $scope.title,
-                    type: $scope.type,
-                    status: 2,
-                    img: $scope.img_view,
-                    content: edtxt,
-                    url: $scope.link,
-                    // industry: $scope.industry
-                },
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            }).then(function (resp) {
-                console.log(resp);
-                if (resp.data.code === 0) {
-                    $state.go('backstage.list');
-                }
-            })
+        if($scope.img_view){
+            $scope.checkimg = false;
+        }
+        $scope.online = function () {
+            if ($scope.title === undefined||$scope.type === undefined || $scope.img_view === undefined || $scope.link === undefined) {
+                alert("图片没有上传！")
+                
+            } else {
+
+                //把富文本编辑器中的文本提取出来
+                var edtxt = editor.txt.text();
+                $http({
+                    method: 'post',
+                    url: '/carrots-admin-ajax/a/u/article/',
+                    params: {
+                        title: $scope.title,
+                        type: $scope.type,
+                        status: 2,
+                        img: $scope.img_view,
+                        content: edtxt,
+                        url: $scope.link,
+                        // industry: $scope.industry
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }).then(function (resp) {
+                    console.log(resp);
+                    if (resp.data.code === 0) {
+                        $state.go('backstage.list');
+                    }
+                })
+            }
         }
         // 新增的存为草稿
         $scope.save = function () {
-            //把富文本编辑器中的文本提取出来
-            var edtxt = editor.txt.text();
-            $http({
-                method: 'post',
-                url: '/carrots-admin-ajax/a/u/article/',
-                params: {
-                    title: $scope.title,
-                    type: $scope.type,
-                    status: 1,
-                    img: $scope.img_view,
-                    content: edtxt,
-                    url: $scope.link,
-                    // industry: $scope.industry
-                },
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            }).then(function (resp) {
-                console.log(resp);
-                if (resp.data.code === 0) {
-                    $state.go('backstage.list');
-                }
-            })
+            if ($scope.title === undefined ||$scope.type === undefined || $scope.img_view === undefined || $scope.link === undefined) {
+                alert("图片没有上传！")
+            } else {
+                //把富文本编辑器中的文本提取出来
+                var edtxt = editor.txt.text();
+                $http({
+                    method: 'post',
+                    url: '/carrots-admin-ajax/a/u/article/',
+                    params: {
+                        title: $scope.title,
+                        type: $scope.type,
+                        status: 1,
+                        img: $scope.img_view,
+                        content: edtxt,
+                        url: $scope.link,
+                        // industry: $scope.industry
+                    },
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }).then(function (resp) {
+                    console.log(resp);
+                    if (resp.data.code === 0) {
+                        $state.go('backstage.list');
+                    }
+                })
+            }
         }
     }
     //使用了第三方插件ng-file-upload上传图片
+
     $scope.imgUpload = function (file) {
         file.upload = Upload.upload({
             url: '/carrots-admin-ajax/a/u/img/task',
             data: {
-                file: $scope.myFiles//把选中的图片命名为file上传
+                file: $scope.myFiles //把选中的图片命名为file上传
             },
         });
         // 请求成功后，获取返回的url，然后缩略图展示
         file.upload.then(function (rsp) {
             console.log(rsp);
-            $scope.src = rsp.data.data.url;//返回的图片url
-            $scope.img_view = $scope.src;
+            $scope.img_view = rsp.data.data.url; //返回的图片url
             $scope.ok = "搞定啦！";
         }, function (rsp) {
             alert(rsp.data.message);
@@ -205,11 +225,24 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
             console.log("图片上传成功！");
         });
     };
-
+    
     // 图片上传后删除
     $scope.imgDelete = function (file) {
         console.log(file);
         $scope.myFiles = "";
         $scope.src = "";
+        $scope.img_view = "";
     };
+
+    //取消
+    $scope.cancel = function () {
+        editor.txt.clear();
+        $scope.myFiles = "";
+        $scope.src = "";
+        $scope.img_view = "";
+        $scope.title = "",
+        $scope.link = "",
+        $scope.type = $scope.types[0].id;
+        $scope.industry = $scope.industries[0].id;
+    }
 });

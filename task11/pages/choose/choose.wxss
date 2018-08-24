@@ -1,0 +1,14 @@
+.title{
+  text-align: center;
+}
+.section{
+  padding:0.5rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.btncheck{
+  width:80%;
+  margin-top: 1rem;
+  color:white;
+  background-color: rgb(54, 190, 54);
+}

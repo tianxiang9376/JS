@@ -1,0 +1,95 @@
+<!--introduce.wxml-->
+<view class="body">
+  <view class="nav bc_white">
+    <view class="{{selected1?'choose':'default'}}" bindtap="selected1">{{Oneinfo1}}</view>
+    <view class="{{selected2?'choose':'default'}}" bindtap="selected2">{{Twoinfo1}}</view>
+    <view class="{{selected3?'choose':'default'}}" bindtap="selected3">{{Threeinfo1}}</view>
+  </view>
+  <view class="{{selected1?'show':'hidden'}}">
+    <view class='border1'>
+      <view class='table1'>职业门槛</view>
+      <view class='table'>{{Oneinfo2}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>难易程度</view>
+      <view class='table'>{{Oneinfo3}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>成长周期</view>
+      <view class='table'>{{Oneinfo4}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>求贤企业</view>
+      <view class='table'>{{Oneinfo5}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>入学基础</view>
+      <view class='table'>{{Oneinfo6}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>薪资待遇</view>
+      <view class='table'>
+        <view wx:for="{{Oneinfo7}}">{{item.time}}
+          <text>\t</text>约
+          <text>\t</text>{{item.salary}}K</view>
+      </view>
+    </view>
+  </view>
+  <view class="{{selected2?'show':'hidden'}}">
+    <view class='border1'>
+      <view class='table1'>职业门槛</view>
+      <view class='table'>{{Twoinfo2}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>难易程度</view>
+      <view class='table'>{{Twoinfo3}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>成长周期</view>
+      <view class='table'>{{Twoinfo4}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>求贤企业</view>
+      <view class='table'>{{Twoinfo5}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>入学基础</view>
+      <view class='table'>{{Twoinfo6}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>薪资待遇</view>
+      <view class='table'>
+        <view wx:for="{{Twoinfo7}}">{{item.time}}<text>\t</text>约<text>\t</text>{{item.salary}}K</view>
+      </view>
+    </view>
+  </view>
+  <view class="{{selected3?'show':'hidden'}}">
+    <view class='border1'>
+      <view class='table1'>职业门槛</view>
+      <view class='table'>{{Threeinfo2}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>难易程度</view>
+      <view class='table'>{{Threeinfo3}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>成长周期</view>
+      <view class='table'>{{Threeinfo4}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>求贤企业</view>
+      <view class='table'>{{Threeinfo5}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>入学基础</view>
+      <view class='table'>{{Threeinfo6}}</view>
+    </view>
+    <view class='border1'>
+      <view class='table1'>薪资待遇</view>
+      <view class='table'>
+        <view wx:for="{{Threeinfo7}}">{{item.time}}<text>\t</text>约<text>\t</text>{{item.salary}}K</view>
+      </view>
+    </view>
+  </view>
+
+</view>

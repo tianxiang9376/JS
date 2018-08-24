@@ -31,3 +31,7 @@
   text-align: center;
   border: 1px solid #ccc;
 }
+
+.add-list-style td {
+  text-align: center;
+}

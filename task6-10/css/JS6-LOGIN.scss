@@ -1,32 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 html {
-    font-size: 625%;
+    font-size: 62.5%;
 }
 
 body {
-    font-size: .16rem;
-    margin: 0;
-    padding: 0;
     background: url(../img/413471.png);
     background-repeat: no-repeat;
-    height: 100vh;
+    width:100%;
+    
 }
 
-* {
-    box-sizing: border-box;
-}
 
-form{
-    padding:.1rem;
-}
-main {
+.loginform {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     margin: auto;
-    height: 3rem;
-    width: 3rem;
+    height: 25rem;
+    width: 30rem;
     text-align: center;
     background-color: rgb(32, 206, 119);
     border: 1px solid #aaa;
@@ -35,40 +32,40 @@ main {
 
 .wrap {
     list-style: none;
-    margin-right: .4rem;
-    margin-bottom: .1rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
     img {
-        line-height: .2rem;
-        height: .2rem;
+        line-height: 2rem;
+        height: 2rem;
         vertical-align: middle;
-        padding-right: .1rem;
+        padding-right: 1rem;
         border-right: 1px solid #ccc;
     }
 }
 
 .wrap input[type="text"] {
     width: 70%;
-    padding-left: .1rem;
-    height: .4rem;
-    line-height: .4rem;
+    padding-left: 1rem;
+    height: 3rem;
+    line-height: 3rem;
     border: none;
     outline: none;
-    font-size: .16rem;
+    font-size: 1rem;
 }
 
 .wrap input[type="password"] {
     width: 70%;
-    padding-left: .1rem;
-    height: .4rem;
-    line-height: .4rem;
+    padding-left: 1rem;
+    height: 3rem;
+    line-height: 3rem;
     border: none;
     outline: none;
-    font-size: .16rem;
+    font-size: 1rem;
 }
 
 .login {
-    padding:.1rem .4rem;
-    font-size: .2rem;
+    padding:1rem 2rem;
+    font-size: 2rem;
     color: white;
     border: none;
     border-radius: 5px;

@@ -92,12 +92,15 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
             author: $stateParams.author,
             title: $stateParams.title,
             startAt: $stateParams.startAt,
-            endAt: $stateParams.endAt
+            endAt: $stateParams.endAt,
+            size: $stateParams.size
         }
     }).then(function (response) {
+        $scope.size = response.data.data.size;
         $scope.list = response.data.data.articleList; //获取列表
         $scope.bigTotalItems = response.data.data.total; //列表总数
         $scope.currentPage = $stateParams.page; //服务器返回的页码列表 
+        $scope.perpage = response.data.data.size;
         //容错处理，在第一次载入列表以及没有选择搜索的时候，清除所有搜索选项
         if (($stateParams.type) === undefined) {
             $scope.type = "";
@@ -143,7 +146,7 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
         var id = this.x.id;
         // 草稿改变
         if (this.x.status === 1) {
-            bootbox.confirm({//要用这个弹窗需要引用bootbox.js和bootstrap.js,不然报错
+            bootbox.confirm({ //要用这个弹窗需要引用bootbox.js和bootstrap.js,不然报错
                 message: "确定要上线？",
                 buttons: {
                     confirm: {
@@ -228,11 +231,11 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
             buttons: {
                 confirm: {
                     label: '确认',
-            
+
                 },
                 cancel: {
                     label: '取消',
-          
+
                 }
             },
             callback: function (result) {
@@ -256,15 +259,18 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
     //页面跳转
     $scope.page = function () {
         $state.go("backstage.list", {
-            page: $scope.currentPage //页面跳转到服务器返回的页码列表
+            page: $scope.currentPage, //页面跳转到服务器返回的页码列表
+            size: $scope.size
         }, {
             reload: true
         });
     }
-    //跳转到第几页
+    //跳转到第几页和每页展示几行
     $scope.letgo = function () {
         $state.go("backstage.list", {
-            page: $scope.gotopage //页面跳转到服务器返回的页码列表
+            page: $scope.gotopage, //页面跳转到服务器返回的页码列表
+            size: $scope.size
+
         }, {
             reload: true
         });

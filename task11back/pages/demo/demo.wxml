@@ -1,0 +1,11 @@
+<view class="body">
+  <view class="nav bc_white">
+    <view class="{{selected1?'red':'default'}}" bindtap="selected1">1</view>
+    <view class="{{selected2?'red':'default'}}" bindtap="selected2">2</view>
+    <view class="{{selected3?'red':'default'}}" bindtap="selected3">3</view>
+  </view>
+
+  <view class="{{selected1?'show':'hidden'}}">1</view>
+  <view class="{{selected2?'show':'hidden'}}">2</view>
+  <view class="{{selected3?'show':'hidden'}}">3</view>
+</view>

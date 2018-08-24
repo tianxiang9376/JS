@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view>
+<view>nihao</view>
+<button class='btncheck' bindtap='getdata'>获取数据</button>
+ <view>{{demodata}}</view>
+ <view>{{numdata}}</view>
+ <button class='btncheck' bindtap='getintroduce'>测试按钮</button>
+<view>
+<view>{{info1}}</view>
+<view>
+<view class='table1'>职业门槛</view>
+<view class='table'>{{info2}}</view>
+</view>
+<view>
+<view class='table1'>难易程度</view>
+<view class='table'>{{info3}}</view>
+</view>
+<view>
+<view class='table1'>成长周期</view>
+<view class='table'>{{info4}}</view>
+</view>
+<view>
+<view class='table1'>求贤企业</view>
+<view class='table'>{{info5}}</view>
+</view>
+<view class='table1'>入学基础</view>
+<view class='table'>{{info6}}</view>
+<view>
+<view class='table1'>薪资待遇</view>
+<view class='table'>{{info7}}</view>
+</view>
+</view>
+</view>
