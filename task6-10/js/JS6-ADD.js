@@ -17,8 +17,11 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
         typename: '行业大图'
     }];
 
+
+
     $scope.type = $scope.types[0].id;
 
+    
     $scope.industries = [{
             id: null,
             industryname: '请选择'
@@ -46,12 +49,11 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
 
     $scope.industry = $scope.industries[0].id;
 
+  
     // 编辑
     if ($stateParams.id) {
         $scope.listTitle = "编辑Article";
-        if($scope.img_view){
-            $scope.checkimg = true;
-        }
+  
         // 编辑渲染数据
         $http({
             method: 'get',
@@ -68,6 +70,7 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
             //把content的内容放入富文本编辑器中去
             var hltxt = $scope.htmltext;
             editor.txt.text(hltxt);
+         
         })
 
         // 编辑的上线
@@ -133,15 +136,14 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
                 })
             }
         }
+
     }
 
     // 新增
     else {
         $scope.listTitle = "新增Article";
         // 新增的立即上线
-        if($scope.img_view){
-            $scope.checkimg = false;
-        }
+     
         $scope.online = function () {
             if ($scope.title === undefined||$scope.type === undefined || $scope.img_view === undefined || $scope.link === undefined) {
                 alert("图片没有上传！")
@@ -226,16 +228,8 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
         });
     };
     
-    // 图片上传后删除
+    // 图片上传后删除，清空页面内所有参数
     $scope.imgDelete = function (file) {
-        console.log(file);
-        $scope.myFiles = "";
-        $scope.src = "";
-        $scope.img_view = "";
-    };
-
-    //取消
-    $scope.cancel = function () {
         editor.txt.clear();
         $scope.myFiles = "";
         $scope.src = "";
@@ -244,5 +238,15 @@ myApp.controller("add", function ($scope, $http, $state, $stateParams, Upload) {
         $scope.link = "",
         $scope.type = $scope.types[0].id;
         $scope.industry = $scope.industries[0].id;
+    };
+
+    //取消,回到上一个页面
+    $scope.cancel = function () {
+        $state.go('backstage.list');
     }
+
+
+ 
+
+
 });
