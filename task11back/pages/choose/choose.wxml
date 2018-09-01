@@ -2,49 +2,50 @@
 <view>
   <view class='title'>试试什么职业适合你</view>
   <view class="section">
-    <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{education}}">
+    <picker bindchange="bindPickerChange1" value="{{index1}}" range="{{education}}" range-key='name'>
       <view class="picker">
-        学历：{{education[index1]}}
+        学历：{{education[index1].name}}
+      </view>
+      <view>{{account}}</view>
+    </picker>
+
+  </view>
+  <view class="section">
+    <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{sexual}}" range-key='name'>
+      <view class="picker">
+        性别：{{sexual[index2].name}}
       </view>
     </picker>
 
   </view>
   <view class="section">
-    <picker bindchange="bindPickerChange2" value="{{index2}}" range="{{sexual}}">
+    <picker bindchange="bindPickerChange3" value="{{index3}}" range="{{age}}" range-key='name'>
       <view class="picker">
-        性别：{{sexual[index2]}}
+        年龄：{{age[index3].name}}
       </view>
     </picker>
 
   </view>
   <view class="section">
-    <picker bindchange="bindPickerChange3" value="{{index3}}" range="{{age}}">
+    <picker bindchange="bindPickerChange4" value="{{index4}}" range="{{base}}" range-key='name'>
       <view class="picker">
-        年龄：{{age[index3]}}
+        基础：{{base[index4].name}}
       </view>
     </picker>
 
   </view>
   <view class="section">
-    <picker bindchange="bindPickerChange4" value="{{index4}}" range="{{base}}">
+    <picker bindchange="bindPickerChange5" value="{{index5}}" range="{{pro}}" range-key='name'>
       <view class="picker">
-        基础：{{base[index4]}}
+        专业：{{pro[index5].name}}
       </view>
     </picker>
 
   </view>
   <view class="section">
-    <picker bindchange="bindPickerChange5" value="{{index5}}" range="{{pro}}">
+    <picker bindchange="bindPickerChange6" value="{{index6}}" range="{{logic}}" range-key='name'>
       <view class="picker">
-        专业：{{pro[index5]}}
-      </view>
-    </picker>
-
-  </view>
-  <view class="section">
-    <picker bindchange="bindPickerChange6" value="{{index6}}" range="{{logic}}">
-      <view class="picker">
-        逻辑：{{logic[index6]}}
+        逻辑：{{logic[index6].name}}
       </view>
     </picker>
 

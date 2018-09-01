@@ -444,18 +444,19 @@ Page({
         num: i,
         score: account1[i]+account2[i]+account3[i]+account4[i]+account5[i]+account6[i]
       }
+      console.log(weight[i]);
     }
-    //sort方法根据数组中对象的score属性值进行排序
+    
+    //用sort方法根据数组中对象的score属性值进行排序
    weight.sort(function (a, b) {
       return b.score - a.score;
     })
-    console.log(weight);
+    console.log("排序后的数组",weight);
     //新建一个数组，把重新排序好的权重数组中的前三个元素的职业序号放入
    var pronum =[];
   for(var i = 0;i<3;i++){
     pronum[i]=weight[i].num;
   }
-  console.log(pronum)
    //本地缓存传参
     wx.setStorage({
       key: 'pronum',

@@ -1,10 +1,8 @@
 {
   "pages": [
     "pages/choose/choose",
-    "pages/test/test",
-    "pages/introduce/introduce",
-    "pages/demo/demo",
-    "newchoose"
+    "pages/introduce/introduce"
+  
   ],
   "window": {
     "backgroundTextStyle": "light",

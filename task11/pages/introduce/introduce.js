@@ -2,35 +2,26 @@ var pronum
 var info
 Page({
   data: {
-    one: '',
-    selected1: true,
-    selected2: false,
-    selected3: false,
+    tab:0,
     enter: '\n'
   },
-  selected1: function(e) {
-    this.setData({
-      selected2: false,
-      selected3: false,
-      selected1: true
-    })
+  tab_slide: function (e) {//滑动切换tab 
+    var that = this;
+    that.setData({ tab: e.detail.current });
   },
-  selected2: function(e) {
-    this.setData({
-      selected1: false,
-      selected3: false,
-      selected2: true
-    })
-  },
-  selected3: function(e) {
-    this.setData({
-      selected1: false,
-      selected2: false,
-      selected3: true
-    })
+  tab_click: function (e) {//点击tab切换
+    var that = this;
+    if (that.data.tab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        tab: e.target.dataset.current
+      })
+    }
   },
   onLoad: function() {
-    var that = this;
+    var that = this;//在wx.request中，默认的this是调用request本身，而不是request获取到的数据，重新定义this,可以规避这个问题
+    //获取推荐的职业序号
     wx.getStorage({
       key: 'pronum',
       success: function(res) {
@@ -49,7 +40,7 @@ Page({
         console.log(res.data);
         //从服务器获取到职业推荐的数据，这是一个数组，注意
         info = res.data.data.occupations;
-        that.setData({
+       that.setData({
           //第一页的数据展示
           Oneinfo1: info[pronum[0]].name,
           Oneinfo2: info[pronum[0]].threshold + '星',
