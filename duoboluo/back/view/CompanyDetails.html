@@ -1,0 +1,274 @@
+<div class="CompanyDetails">
+    <!-- {{vm.test}} -->
+    <!-- 公司信息 -->
+    <form class="form-inline" name="companyInfoForm">
+        <!-- 标题 -->
+        <div class="form-ctrl form-width form-border">
+            <label for="exampleInputName2">公司信息</label>
+        </div>
+        <!-- 公司名称 -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">*公司名称</label>
+            <input type="text" name="companyName" class="form-control" ng-model="vm.companyName" ng-blur="companyNameStatus=true"
+                ng-focus="companyNameStatus=false" required>
+            <span class="error text-danger" ng-show="companyInfoForm.companyName.$error.required && companyNameStatus">*公司名称不能为空</span>
+        </div>
+        <!-- 公司Slogan -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">*公司Slogan</label>
+            <input type="text" name="companySlogan" class="form-control" ng-model="vm.companySlogan" ng-blur="companySloganStatus=true"
+                ng-focus="companySloganStatus=false" required>
+            <span class="error text-danger" ng-show="companyInfoForm.companySlogan.$error.required && companySloganStatus">*公司Slogan不能为空</span>
+        </div>
+        <!-- 公司人数 -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">*公司人数</label>
+            <input type="text" name="companyNum" class="form-control" ng-model="vm.companyNum" ng-blur="companyNumStatus=true"
+                ng-focus="companyNumStatus=false" required>
+            <span class="error text-danger" ng-show="companyInfoForm.companyNum.$error.required && companyNumStatus">*公司人数不能为空</span>
+        </div>
+        <!-- 融资规模 -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">*融资规模</label>
+            <select class="form-control" ng-model="vm.financing" ng-options="a.id as a.name for a in vm.financingSelect">
+            </select>
+        </div>
+        <!-- 地区
+        <div class="form-ctrl">
+            <label for="exampleInputName2">*地区</label>
+            <input type="text" id="title" name="title" class="form-control" ng-model="vm.companySlogan" ng-blur="titleStatus=true"
+                ng-focus="titleStatus=false" required>
+            <span class="error text-danger" ng-show="detailForm.title.$error.required && titleStatus">*标题不能为空</span>
+        </div> -->
+        <!-- 认证状态 -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">认证状态</label>
+            <select class="form-control" ng-model="vm.approvedStatus" ng-options="a.id as a.name for a in vm.approvedStatusSelect">
+            </select>
+        </div>
+        <!-- 行业 -->
+        <div class="form-ctrl form-width">
+            <label for="exampleInputName2">*行业</label>
+            <select class="form-control" ng-model="vm.industry" ng-click="vm.addIndustry(vm.industry)" ng-options="a.id as a.name for a in vm.industrySelect">
+            </select>
+            <ul class="form-ctrl form-width companyTag">
+                <li ng-repeat="x in vm.companyIndustryList track by $index">
+                    <span class="Tag1">{{x.industry | industry}}</span>
+                    <span class="Tag2" ng-click="vm.delIndustry($index)">X</span>
+                </li>
+            </ul>
+        </div>
+        <div class="form-ctrl form-width">
+            <label for="exampleInputName2">地区</label>
+            <select class="form-control" ng-model="vm.pro" ng-change="vm.getCity(vm.pro)" ng-options="a.ProID as a.ProName for a in vm.provinceSelect"></select>
+            <select class="form-control" ng-model="vm.city" ng-change="vm.getCounty(vm.city)" ng-options="a.CityID as a.CityName for a in vm.citySelect"></select>
+            <select class="form-control" ng-model="vm.county" ng-options="a.Id as a.countyName for a in vm.countySelect"></select>
+        </div>
+        <!-- 公司Logo上传 -->
+        <div class="form-ctrl form-width">
+            <label for="exampleInputName2">*公司Logo</label>
+            <button ng-click="imgClear()" type="button" class="btn btn-primary">
+                <label class="ui_button ui_button_primary" for="file1" style="color: #fff;font-size: .12rem;text-align: center;">上传文件</label>
+                <input type="file" id="file1" name="file1" ngf-select="" ngf-pattern="'image/*'" ngf-accept="'image/*'"
+                    ng-model="vm.companyLogoUp" ngf-max-size="1MB" required="" style="position:absolute;clip:rect(0 0 0 0);">
+            </button>
+        </div>
+        <!-- 公司logo图片展示 -->
+        <div class="form-ctrl">
+            <img ngf-src="vm.companyLogoUp" style="max-width: 300px;max-height: 200px;" />
+            <!-- <img ng-if="vm.companyLogo" ngf-src="{{vm.companyLogo}}"/> -->
+            <div ng-hide="vm.companyLogoUp" style="max-width: 300px;max-height: 200px;"><img ng-src="{{vm.companyLogo}}" /></div>
+        </div>
+        <!-- 公司logo信息表格 -->
+        <table class="table table-hover">
+            <tbody>
+                <tr class="thead">
+                    <th style="width: 50%;">图片名</th>
+                    <th>文件大小</th>
+                    <th>进度</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="thead" ng-if="vm.companyLogoUp">
+                    <th style="width: 50%;">{{vm.companyLogoUp.name}}</th>
+                    <th>{{vm.companyLogoUp.size/1024 | number:3}}KB</th>
+                    <th>
+                        <div class="progress text-center" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" ng-style="{'width':vm.companyLogoUp.progress + '%'}"></div>
+                        </div>
+                    </th>
+                    <th>{{ok}}</th>
+                    <th>
+                        <button type="button" class="btn btn-success btn-sm" ng-click="vm.imgUpload(vm.companyLogoUp,1)">上传</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="vm.imgDelete(1)">删除</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 公司介绍文本编辑框 -->
+        <div class="form-ctrl form-width">
+            <div>
+                <label for="exampleInputName2">*公司介绍</label>
+                <div id="editor1"></div>
+            </div>
+        <!-- {{vm.companyText}} -->
+        </div>
+        <!-- 公司标签 -->
+        <div class="form-ctrl form-width">
+            <div>
+                <label for="exampleInputName2">公司标签</label>
+                <input class="form-control" ng-model="vm.companyTag" />
+                <button type="button" ng-click="vm.addTag(vm.companyTag)" class="btn btn-success btn-sm">添加标签</button>
+                <ul class="form-ctrl form-width companyTag">
+                    <li ng-repeat="x in vm.companyTagList track by $index">
+                        <span class="Tag1">{{x.tag}}</span>
+                        <span class="Tag2" ng-click="vm.delTag($index)">X</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </form>
+    <!-- 公司产品信息 -->
+    <form class="form-inline" name="productForm">
+        <!-- 产品标题 -->
+        <div class="form-ctrl form-width form-border">
+            <label for="exampleInputName2">公司产品（选填）</label>
+        </div>
+        <!-- 产品名称 -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">产品名称</label>
+            <input type="text" class="form-control" ng-model="vm.productName">
+        </div>
+        <!-- 产品Slogan -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">产品Slogan</label>
+            <input type="text" class="form-control" ng-model="vm.productSlogan">
+        </div>
+        <!-- 产品logo上传 -->
+        <div class="form-ctrl form-width">
+            <label for="exampleInputName2">产品Logo</label>
+            <button ng-click="imgClear()" type="button" class="btn btn-primary">
+                <label class="ui_button ui_button_primary" for="file2" style="color: #fff;font-size: .12rem;text-align: center;">上传文件</label>
+                <input type="file" id="file2" name="file2" ngf-select="" ngf-pattern="'image/*'" ngf-accept="'image/*'"
+                    ng-model="vm.productLogoUp" ngf-max-size="1MB" required="" style="position:absolute;clip:rect(0 0 0 0);">
+            </button>
+        </div>
+        <!-- 产品Logo图片展示 -->
+        <div class="form-ctrl">
+            <img ngf-src="vm.productLogoUp" style="max-width: 300px;max-height: 200px;" />
+            <!-- <img ng-if="vm.companyLogo" ngf-src="{{vm.companyLogo}}"/> -->
+            <div ng-hide="vm.productLogoUp" style="max-width: 300px;max-height: 200px;"><img ng-src="{{vm.productLogo}}" /></div>
+        </div>
+        <!-- 产品logo信息表格 -->
+        <table class="table table-hover">
+            <tbody>
+                <tr class="thead">
+                    <th style="width: 50%;">图片名</th>
+                    <th>文件大小</th>
+                    <th>进度</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="thead" ng-if="vm.productLogoUp">
+                    <th style="width: 50%;">{{vm.productLogoUp.name}}</th>
+                    <th>{{vm.productLogoUp.size/1024 | number:3}}KB</th>
+                    <th>
+                        <div class="progress text-center" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" ng-style="{'width':vm.productLogoUp.progress + '%'}"></div>
+                        </div>
+                    </th>
+                    <th>{{ok}}</th>
+                    <th>
+                        <button type="button" class="btn btn-success btn-sm" ng-click="vm.imgUpload(vm.productLogoUp,2)">上传</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="vm.imgDelete(2)">删除</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 产品简介 -->
+        <div class="form-ctrl form-width">
+            <div>
+                <label for="exampleInputName2">产品简介</label>
+                <div id="editor2"></div>
+            </div>
+        </div>
+
+
+    </form>
+    <!-- 招聘公司具体信息 -->
+    <form class="form-inline" name="detailForm">
+        <!-- 标题 -->
+        <div class="form-ctrl form-width form-border">
+            <label for="exampleInputName2">公司招聘信息</label>
+        </div>
+        <!-- 手机号码 -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">手机</label>
+            <input type="number" name="phone" required class="form-control" ng-model="vm.companyPhone" ng-pattern="/^1[3|4|5|7|8]\d{9}$/">
+            <span class="error text-danger" ng-show="detailForm.phone.$error.number">只能输入数字</span>
+            <span class="error text-danger" ng-show="detailForm.phone.$error.pattern">请输入11位手机号码</span>
+        </div>
+        <!-- 邮箱地址 -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">邮箱</label>
+            <input type="email" class="form-control" ng-model="vm.companyMail" name="email" required>
+            <span class="error text-danger" ng-show="detailForm.email.$error.email">邮箱格式不正确</span>
+
+        </div>
+        <!-- 公司地址 -->
+        <div class="form-ctrl">
+            <label for="exampleInputName2">详细地址</label>
+            <input type="text" class="form-control" ng-model="vm.companyAddress">
+
+        </div>
+        <!-- 公司地图图片上传 -->
+        <div class="form-ctrl form-width">
+            <label for="exampleInputName2">公司地图</label>
+            <button ng-click="imgClear()" type="button" class="btn btn-primary">
+                <label class="ui_button ui_button_primary" for="file3" style="color: #fff;font-size: .12rem;text-align: center;">上传文件</label>
+                <input type="file" id="file3" name="file3" ngf-select="" ngf-pattern="'image/*'" ngf-accept="'image/*'"
+                    ng-model="vm.companyMapUp" ngf-max-size="1MB" required="" style="position:absolute;clip:rect(0 0 0 0);">
+            </button>
+        </div>
+        <!-- 公司地图图片展示 -->
+        <div class="form-ctrl">
+            <img ngf-src="vm.companyMapUp" style="max-width: 300px;max-height: 200px;" />
+            <!-- <img ng-if="vm.companyLogo" ngf-src="{{vm.companyLogo}}"/> -->
+            <div ng-hide="vm.companyMapUp" style="max-width: 300px;max-height: 200px;"><img ng-src="{{vm.companyMap}}" /></div>
+        </div>
+        <!-- 公司地图图片信息表格 -->
+        <table class="table table-hover">
+            <tbody>
+                <tr class="thead">
+                    <th style="width: 50%;">图片名</th>
+                    <th>文件大小</th>
+                    <th>进度</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="thead" ng-if="vm.companyMapUp">
+                    <th style="width: 50%;">{{vm.companyMapUp.name}}</th>
+                    <th>{{vm.companyMapUp.size/1024 | number:3}}KB</th>
+                    <th>
+                        <div class="progress text-center" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" ng-style="{'width':vm.companyMapUp.progress + '%'}"></div>
+                        </div>
+                    </th>
+                    <th>{{ok}}</th>
+                    <th>
+                        <button type="button" class="btn btn-success btn-sm" ng-click="vm.imgUpload(vm.companyMapUp,3)">上传</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="vm.imgDelete(3)">删除</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <!-- 底部按钮 -->
+    <div class="form-ctrl form-back">
+        <button type="button" class="btn btn-danger" ng-click="cancel()"">取消</button>
+        <button type=" button"class="btn btn-success" ng-click="vm.online() " 
+        ng-disabled="vm.companyName == null || vm.companySlogan == null || vm.companyNum == null || vm.financing == 0 || vm.companyIndustryList == null || vm.companyLogo == null || vm.companyText == null || vm.companyText == 0">保存</button>
+      
+    </div>
+</div>

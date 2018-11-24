@@ -1,0 +1,96 @@
+.account {
+    padding: .2rem calc(0.2rem + 15px) .2rem .2rem;
+    margin-left: calc(2rem + 15px);
+    height: 100vh;
+    background: #eee;
+    .AC-info {
+        margin-top: .8rem;
+        padding: .15rem;
+        border: #4f4f4f solid 1px;
+        border-radius: .05rem;
+        background: #fff;
+        .form-ctrl {
+            margin: .15rem;
+            .form-control {
+                width: 2rem;
+            }
+        }
+        .inputStyle{
+            display: block;
+        }
+    }
+}
+.AC-list {
+    margin-top: .2rem;
+    border: #4f4f4f solid 1px;
+    border-radius: .05rem;
+    background: #fff;
+    .list-HD {
+        height: .3rem;
+        padding: 0 0.2rem;
+        border: none;
+        background: #212121;
+        border-top-right-radius: .05rem;
+        border-top-left-radius: .05rem;
+        >span {
+            line-height: .3rem;
+            font-size: .12rem;
+            color: #eee;
+        }
+
+        >button {
+            float: right;
+            margin-top: .045rem;
+        }
+    }
+
+    >table {
+        margin: 0;
+        border: none;
+
+        .thead {
+            border: none;
+
+            >th {
+                max-width: 1rem;
+                border: none;
+                text-align: center;
+                vertical-align: middle;
+                word-wrap: break-word;
+            }
+        }
+    }
+}
+.pages {
+    padding:.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    >div {
+        display: flex;
+        align-items: center;
+    }
+
+    input {
+        width: .4rem;
+    }
+}
+
+.text-info {
+    font-size: .2rem;
+    text-align: center;
+}
+
+.online-text,
+.offline-text,
+.delete {
+    text-align: center;
+    color: #4f4f4f;
+}
+
+.text-success,
+.text-danger {
+    text-align: center;
+    font-size: .2rem;
+}

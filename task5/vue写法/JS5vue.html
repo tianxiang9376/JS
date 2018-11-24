@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JS5vue登陆页面</title>
+	<script src="js/vue.js"></script>
+	<script src="js/vue-resource.js"></script>
+
+</head>
+
+<body>
+	<div id="app">
+		<span>用户名</span><input v-model="name" />
+		<span>密码：</span><input v-model="pwd" />
+		<button v-on:click="login">登陆</button>
+	</div>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+
+				name: '',
+				pwd: ''
+
+
+			},
+			methods: {
+				login: function () {
+					let data = {
+						"name": this.name,
+						"pwd": this.pwd,
+						
+					}
+					console.log("data.name")
+					//发送 post 请求
+					this.$http.post("/carrots-admin-ajax/a/login", {
+							data
+						}, {
+							emulateJSON: true
+						})
+						.then(function (res) {
+							if (res.message == "success") {
+								console.log("success");
+							} else {
+								console.log(res)
+							}
+						});
+				}
+			}
+		});
+	</script>
+
+</body>
+
+</html>

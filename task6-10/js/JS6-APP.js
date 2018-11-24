@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp", ['ui.router','ngAnimate', 'ngSanitize', 'ngMessages','ui.bootstrap','ngFileUpload']);
+var myApp = angular.module("myApp", ['ui.router', 'ngAnimate', 'ngSanitize', 'ngMessages', 'ui.bootstrap', 'ngFileUpload']);
 // var myApp = angular.module("myApp", [&apos;ui.router&apos;]);
 // 这里叫做App模块，这将告诉HTML页面这是一个AngularJS作用的页面，它的内容由AngularJS引擎来解释。&apos引号作用'',区分
 // 路由
@@ -12,7 +12,6 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     });
     // 默认导入页面
     $urlRouterProvider.otherwise("login");
-    // 这一行定义了会在main.html页面第一个显示出来的状态，作为页面被加载好以后第一个被使用的路由.
     $stateProvider
         .state("login", {
             url: "/login",
@@ -20,26 +19,38 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             controller: "login"
         })
         .state("backstage", {
-            url: "/backstage",
-            templateUrl: "JS6-BACK.html"
+            url: "/backstage?",
+            templateUrl: "JS6-BACK.html",
+            controller: "backstage"
         })
         .state("backstage.list", {
             //Article列表页+++
-            url: '/list?page$status$type$startAt$endAt$author$title$size',
+            //params设定路由传参的参数,网址栏不会有参数
+            params: {
+                "status": "",
+                "type": "",
+                "page":"",
+                "startAt":undefined,
+                "endAt":undefined,
+                "author":"",
+                "title":"",
+                "size":""
+            },
+            url: '/list',
             templateUrl: "JS6-LIST.html",
             controller: "list"
         })
         .state("backstage.add", {
             //列表编辑页面
+            //在url地址中用?XXX&xxx的方法添加需要路由传参的参数，网址栏会带有参数
             url: '/add?id',
             templateUrl: "JS6-ADD.html",
             controller: "add"
         })
-        /*一个测试页面
-        .state("backstage.demo", {
-            //Article列表页+++
-            url: '/demo?page$status$type$startAt$endAt$author$title',
-            templateUrl: "demo2.html",
-            controller: "demo"
-        })*/
+        
+    // .state("backstage.demo", {
+    //     url: "/demo",
+    //     templateUrl: "demo.html",
+    //     controller: "demo"
+    // })
 });

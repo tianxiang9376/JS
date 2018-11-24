@@ -1,0 +1,52 @@
+.detail {
+    padding: .2rem calc(0.2rem + 15px) .2rem .2rem;
+    margin-left: calc(2rem + 15px);
+    height: 100vh;
+    background: #eee;
+
+    >form {
+        border: #4f4f4f solid 1px;
+        border-radius: .05rem;
+        background: #fff;
+        margin-top: .8rem;
+
+        .form-ctrl {
+            margin: .2rem;
+
+            >input {
+                width: 40%;
+            }
+        }
+
+        table {
+            margin: 0;
+            border-bottom: #eee solid 1px;
+
+            .thead {
+                border-top: #999 solid 1px;
+
+                >th {
+                    max-width: 1rem;
+                    border: none;
+                    text-align: center;
+                    vertical-align: middle;
+                    word-wrap: break-word;
+                }
+            }
+        }
+    }
+}
+
+label {
+    width: .5rem;
+    font-size: .12rem;
+    color: #4f4f4f;
+}
+
+#editor {
+    flex-flow: wrap;
+}
+
+.error {
+    font-size: .1rem;
+}

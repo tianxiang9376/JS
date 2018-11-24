@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>萝卜多后台管理系统</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/reset.css">
+    <!-- <link rel="stylesheet" href="./css/function.css"> -->
+    <link rel="stylesheet" href="./style/index.min.css">
+</head>
+
+<body ng-app="app">
+    <div ui-view=""></div>
+    <!-- jquery文件 务必在bootstrap.js之前引入  -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <!-- 最新的Bootbox文件 -->
+    <script src="https://cdn.bootcss.com/bootbox.js/4.4.0/bootbox.js"></script>
+    <!-- angular文件 -->
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular.js"></script>
+    <!-- angular动画模块 -->
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular-animate.js"></script>
+    <!-- angular日期汉化 -->
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/i18n/angular-locale_zh-cn.js"></script>
+    <!-- angular-ui-bootstrap文件 -->
+    <script src="https://cdn.bootcss.com/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+    <!-- angular路由模块 -->
+    <script src="https://cdn.bootcss.com/angular-ui-router/1.0.18/angular-ui-router.js"></script>
+    <!-- oc.lazeload懒加载 -->
+    <script src="https://cdn.bootcss.com/oclazyload/1.1.0/ocLazyLoad.min.js"></script>
+    <!-- angular表单验证模块 -->
+    <script src="https://cdn.bootcss.com/angular.js/1.6.6/angular-messages.js"></script>
+    <!--富文本编辑器 -->
+    <script src="//unpkg.com/wangeditor/release/wangEditor.min.js"></script>
+    <!-- shim需要支持非HTML5 FormData浏览器（IE8-9-->
+    <script src="./script/plugins/ng-file-upload-shim.js"></script>
+    <!-- ng-file-upload -->
+    <script src="./script/plugins/ng-file-upload.js"></script>
+    <!-- 全局配置文件 -->
+    <script src="./script/router/config.js"></script>
+    <!-- ajax封装 -->
+    <script src="./script/factory/GetMsg.js"></script>
+    <!-- 模态框封装 -->
+    <script src="./script/services/popupBox.js"></script>
+    <!-- 过滤器 -->
+    <script src="./script/filters/filter.js"></script>
+    <!-- 公司列表下拉选项 -->
+    <script src="./script/factory/compListSelect.js"></script>
+    <!-- 公司新增/编辑下拉选项 -->
+    <script src="./script/factory/compDetailsSelect.js"></script>
+    <!-- 职位列表下拉选项 -->
+    <script src="./script/factory/postListSelect.js"></script>
+    <!-- 职位新增/编辑下拉选项 -->
+    <script src="./script/factory/postDetailsSelect.js"></script>
+    <!-- 自定义指令 分页按钮 -->
+    <script src="./script/directives/pagBtn.js"></script>
+    <!-- 权限判断按钮禁用 -->
+    <script src="./script/factory/AccessBtn.js"></script>
+    <!-- 地区选择 -->
+    <script src="./script/factory/Area.js"></script>
+</body>
+
+</html>

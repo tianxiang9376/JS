@@ -1,0 +1,9 @@
+<div class="demo">
+   
+    <select class="form-control" ng-model="vm.pro" ng-change="vm.getCity(vm.pro)" ng-options="a.ProID as a.ProName for a in vm.provinceSelect"></select>
+    <select class="form-control" ng-model="vm.city" ng-change="vm.getCounty(vm.city)" ng-options="a.CityID as a.CityName for a in vm.citySelect"></select>
+    <select class="form-control" ng-model="vm.county" ng-options="a.Id as a.countyName for a in vm.countySelect"></select>
+    {{vm.pro}}
+    {{vm.city}}
+    {{vm.area}}
+</div>

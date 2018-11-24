@@ -1,17 +1,18 @@
-<div class="main-right" ng-controller="list">
+<div class="main-right">
     <div class="main-right-head">
         <div class="first-line">
             <div class="main-right-head-box">
                 <span>时&nbsp;&nbsp;&nbsp;间</span>
                 <div style="display: inline-block;">
-                    <input type="text" uib-datepicker-popup="" ng-model="startday" is-open="popup1.opened" ng-required="true" close-text="关闭"
-                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" ng-click="open1()" size="7" />
+                    <input type="text" uib-datepicker-popup="" ng-model="startday" is-open="popup1.opened" ng-required="true" close-text="关闭" 
+                        clear-text="清空" current-text="今天" alt-input-formats="altInputFormats" ng-click="open1()" size="7" datepicker-options="{maxDate:(endday),showWeeks:false}"  />
                 </div>
                 <span>-</span>
-                <div style="display: inline-block;">
+                <div style="display: inline-block;" data-date-format="dd-mm-yyyy">
                     <input type="text" uib-datepicker-popup="" ng-model="endday" is-open="popup2.opened" ng-required="true" close-text="关闭" clear-text="清空"
-                        current-text="今天" alt-input-formats="altInputFormats" ng-click="open2()" size="7" />
+                        current-text="今天" alt-input-formats="altInputFormats" ng-click="open2()" size="7"  datepicker-options="{minDate:(startday),showWeeks:false}" />
                 </div>
+                
             </div>
             <div class="main-right-head-box">
                 <span>标&nbsp;&nbsp;&nbsp;题</span>
@@ -26,27 +27,26 @@
         <div class="second-line">
             <div class="main-right-head-box">
                 <span>状&nbsp;&nbsp;&nbsp;态</span>
-                <select name="" id="" ng-model="status" ng-options="a.id as a.name for a in StatusName">
+                <select ng-model="status" ng-options="a.id as a.name for a in StatusName" >
 
                 </select>
             </div>
             <div class="main-right-head-box">
                 <span>类&nbsp;&nbsp;&nbsp;型</span>
-                <select name="" id="" ng-model="type" ng-options="a.id as a.name for a in TypeName">
-
+                <select ng-model="type" ng-options="a.id as a.name for a in TypeName">
                 </select>
             </div>
             <div class="main-right-head-box">
-                <button class="btn-search" type="button" ng-click="search()">搜索</button>
-                <button class="btn-clear" type="button" ng-click="clear()">清空</button>
+                <button  class="btn-search btn btn-success" type="button" ng-click="search()">搜索</button>
+                <button class="btn-clear btn btn-warning" type="button" ng-click="clear()">清空</button>
             </div>
-        </div>
+        </div> 
     </div>
     <div class="main-right-middle">
         <div class="main-right-middle-tittle">
             <span>Article管理</span>
             <div class="main-right-left">
-                <button ui-sref="backstage.add">+新增</button>
+                <button ui-sref="backstage.add" class=" btn btn-success" >+新增</button>
             </div>
         </div>
         <div class="main-right-middle-info">
@@ -67,7 +67,7 @@
             <span>{{$index+1}}</span>
             <span>{{x.title}}</span>
             <span>
-                <img src="{{x.img}}" />
+                <img ng-src="{{x.img}}" />
             </span>
             <span>{{x.type | TypeName}}</span>
             <span>{{x.author}}</span>
@@ -82,9 +82,9 @@
             </span>
             <span>{{x.status | StatusName}}</span>
             <span>
-                <button type="button" ng-click="updown()">{{btnStatus()}}</button>
-                <button type="button" ng-click="edit()">编辑</button>
-                <button type="button" ng-click="delete()">删除</button>
+                <button type="button"  ng-click="updown()" class="main-right-info-list-btn btn btn-warning">{{btnStatus()}}</button>
+                <button type="button"  ng-click="edit()" class="main-right-info-list-btn btn btn-primary">编辑</button>
+                <button type="button"  ng-click="delete()" class="main-right-info-list-btn btn btn-danger">删除</button>
             </span>
         </div>
     </div>
@@ -100,7 +100,7 @@
             每页展示
             <input size="2" type="text" ng-model="size" class="ng-pristine ng-valid ng-empty ng-touched"> 行
         </div>
-        <button style="display:inline-block;vertical-align: middle;" ng-click="letgo()">确定</button>
+        <button style="display:inline-block;vertical-align: middle;" class="btn btn-success" ng-click="letgo()">确定</button>
     </div>
-   
+
 </div>

@@ -1,0 +1,70 @@
+<div ng-controller="PostDetails as vm" class="Po-detail">
+    <div class="Po-detailInfo">
+        <div class="detail-HD">
+            <span>职位详细信息</span>
+            <select class="form-search pull-right" ng-model="vm.recommend" ng-options="a.id as a.name for a in vm.recommendSelect"></select>
+        </div>
+        <form class="form-inline">
+            <div class="form-group form-ctrl">
+                <label for="postName">职位名称</label>
+                <input type="text" class="form-control" id="postName" ng-model="vm.name">
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="company">在招公司</label>
+                <input type="text" class="form-control" id="company" ng-model="vm.companyName">
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="experience">工作经验</label>
+                <select class="form-control" ng-model="vm.experience" ng-options="a.id as a.name for a in vm.experienceSelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="education">学历要求</label>
+                <select class="form-control" ng-model="vm.education" ng-options="a.id as a.name for a in vm.educationSelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="compensation">薪资</label>
+                <select class="form-control" ng-model="vm.compensation" ng-options="a.id as a.name for a in vm.compensationSelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl form-width">
+                <label for="category">职业分类</label>
+                <select class="form-control" ng-model="vm.category" ng-options="a.id as a.name for a in vm.categorySelect">
+                </select>
+                <label class="control-label">——</label>
+                <select class="form-control" ng-model="vm.subCategory" ng-options="a.id as a.name for a in vm.subCategorySelect">
+                </select>
+            </div>
+            <div class="form-ctrl">
+                <label for="category">公司福利</label>
+                <label class="checkbox-inline laber-ctrl">
+                    <input type="checkbox" id="inlineCheckbox1" value="option1"> <span>111</span>
+                </label>
+            </div>
+        </form>
+    </div>
+    <div class="Po-describe">
+        <div class="describe-HD">
+            <span>职位描述</span>
+        </div>
+        <form class="form-inline">
+            <div class="form-ctrl">
+                <label for="responsibility">岗位职责</label>
+                <textarea class="form-control" rows="3" ng-model="vm.responsibility"></textarea>
+            </div>
+            <div class="form-ctrl">
+                <label for="requisite">必备条件</label>
+                <textarea class="form-control" rows="3" ng-model="vm.requisite"></textarea>
+            </div>
+            <div class="form-ctrl">
+                <label for="boon">公司福利</label>
+                <textarea class="form-control" rows="3" ng-model="vm.boon"></textarea>
+            </div>
+            <div class="form-ctrl">
+                <button type="button" class="btn btn-success" ng-click="vm.save()">保存</button>
+                <button type="button" class="btn btn-danger" ng-click="cancel()">取消</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,22 +1,49 @@
-myApp.controller("demo", function ($scope, $http,$state, $stateParams) {
-    $http({
-        method: 'GET',
-        url: '/carrots-admin-ajax/a/article/search',
-        params: {
-            page: $stateParams.page,
+myApp.directive('myPage', function () {
+    return {
+        restrict: 'EA',
+        replace: true,
+        transclude: true,
+        scope: {
+            title: "=pageTitle"
+        },
+        template: [
+            '<div class="panel panel-info">',
+            '<div class="panel-heading" ng-click="toggle();">',
+            '<h3 class="panel-title" >{{title}}</h3>',
+            '</div>',
+            '<div class="panel-body" ng-show="showMe" ng-transclude></div>',
+            '</div>'
+        ].join(""),
+        link: function (scope, element, attrs) {
+            scope.showMe = false;
+            scope.$parent.addExpander(scope);
+            scope.toggle = function toggle() {
+                scope.showMe = !scope.showMe;
+                scope.$parent.goToExpander(scope);
+            }
         }
-    }).then(function(response) {
-        $scope.item = response.data.data.articleList;
-        $scope.bigTotalItems = response.data.data.total;
-        $scope.currentPage = $stateParams.page;
-        $scope.size = response.data.data.size;
-    });
-    $scope.maxSize = 3;
-    $scope.page = function () {
-        $state.go("backstage.demo", {
-            page: $scope.currentPage
-        }, {
-            reload: true
-        });
-    }
-})
+    };
+});
+myApp.controller("demo",['$scope', '$http', function ($scope, $http) {
+    $scope.expanders = [{
+        title: 'nihao',
+        text: 'nihao'
+    }, {
+        title: '???',
+        text: '???'
+    }, {
+        title: 'butaihao',
+        text: '行政部'
+    }];
+    var expanders = []; //记录所有菜单
+    $scope.addExpander = function (expander) {
+        expanders.push(expander);
+    };
+    $scope.goToExpander = function (selectedExpander) {
+        expanders.forEach(function (item, index) { //隐藏非当前选项卡,实现切换功能
+            if (item != selectedExpander) {
+                item.showMe = false;
+            }
+        })
+    };
+}]);

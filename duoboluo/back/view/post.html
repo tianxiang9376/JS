@@ -1,0 +1,108 @@
+<div ng-controller="PostList" class="Post">
+    <div class="Po-info">
+        <form class="form-inline">
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">公司名称</label>
+                <input type="text" class="form-control" id="exampleInputName2">
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">职位名称</label>
+                <input type="text" class="form-control" id="exampleInputName2">
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">职位类别</label>
+                <select class="form-control">
+                    <option value="">全部</option>
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">学历要求</label>
+                <select class="form-control">
+                    <option value="">全部</option>
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">工作经验</label>
+                <select class="form-control">
+                    <option value="">全部</option>
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">发布时间</label>
+                <input type="text" class="form-control" id="exampleInputName2">
+            </div>
+            <div class="liner"></div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2"></label>
+                <input type="text" class="form-control" id="exampleInputName2">
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">薪资</label>
+                <select class="form-control">
+                    <option value="">全部</option>
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">状态</label>
+                <select class="form-control">
+                    <option value="">全部</option>
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <button type="button" class="btn btn-success" ng-click="search()">搜索</button>
+                <button type="button" class="btn btn-danger" ng-click="empty()">清空</button>
+            </div>
+        </form>
+    </div>
+    <div class="PO-list">
+        <div class="list-HD">
+            <span>公司列表</span>
+            <button type="button" class="btn btn-success btn-xs" ng-click="added()">+新增</button>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr class="thead">
+                    <th>序号</th>
+                    <th>公司名称</th>
+                    <th>公司行业</th>
+                    <th>地区</th>
+                    <th>融资规模</th>
+                    <th>认证状态</th>
+                    <th>冻结状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="thead">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>
+                        <button type="button" class="btn btn-info btn-xs">编辑</button>
+                        <button type="button" class="btn btn-danger btn-xs">下架</button>
+                        <button type="button" class="btn btn-danger btn-xs">删除</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pages">
+        <div>
+            <span>每页显示</span>
+            <input class="form-control input-sm" ng-model="size" type="text">
+            <span>条</span>
+        </div>
+        <ul uib-pagination ng-change="pageChange()" total-items="bigTotalItems" ng-model="bigCurrentPage"
+            boundary-link-numbers="false" items-per-page="size" first-text="第一页" previous-text="上一页" next-text="下一页"
+            last-text="最后页" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false">
+        </ul>
+        <div>
+            <span>去第</span>
+            <input class="form-control input-sm" ng-model="page" type="text">
+            <span>页</span>
+        </div>
+        <button type="button" class="btn btn-default" ng-click="sizeGo()">确认</button>
+    </div>
+</div>

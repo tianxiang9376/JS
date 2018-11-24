@@ -1,0 +1,110 @@
+<div class="Post">
+    <div class="Po-info">
+        <form class="form-inline">
+            <div class="form-group form-ctrl">
+                <label for="companyName">公司名称</label>
+                <input type="text" class="form-control" ng-model="vm.companyName" id="companyName">
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="postName">职位名称</label>
+                <input type="text" class="form-control" ng-model="vm.name" id="postName">
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="category">职位类别</label>
+                <select class="form-control" ng-model="vm.category" ng-options="a.id as a.name for a in vm.categorySelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="subCategory">职位子类</label>
+                <select class="form-control" ng-model="vm.subCategory" ng-options="a.id as a.name for a in vm.subCategorySelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="education">学历要求</label>
+                <select class="form-control" ng-model="vm.education" ng-options="a.id as a.name for a in vm.educationSelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="experience">工作经验</label>
+                <select class="form-control" ng-model="vm.experience" ng-options="a.id as a.name for a in vm.experienceSelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="startAt">发布时间</label>
+                <input type="text" class="form-control" id="startAt" ng-model="vm.startAt">
+            </div>
+            <div class="liner"></div>
+            <div class="form-group form-ctrl">
+                <input type="text" class="form-control" id="endAt" ng-model="vm.endAt">
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="compensation">薪资</label>
+                <select class="form-control" ng-model="vm.compensation" ng-options="a.id as a.name for a in vm.compensationSelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="status">状态</label>
+                <select class="form-control" ng-model="vm.status" ng-options="a.id as a.name for a in vm.statusSelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <button type="button" class="btn btn-success" ng-click="vm.search()">搜索</button>
+                <button type="button" class="btn btn-danger" ng-click="vm.empty()">清空</button>
+            </div>
+        </form>
+    </div>
+    <div class="PO-list">
+        <div class="list-HD">
+            <span>公司列表</span>
+            <button type="button" class="btn btn-success btn-xs" ng-click="vm.postAdd()">+新增</button>
+        </div>
+      
+        <table class="table table-hover">
+            <tbody>
+                <tr class="thead">
+                    <th>序号</th>
+                    <th>公司名称</th>
+                    <th>职位名称</th>
+                    <th>薪资</th>
+                    <th>学历要求</th>
+                    <th>工作经验</th>
+                    <th>发布时间</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="thead" ng-repeat="PostList in vm.postList">
+                    <th>{{$index+1}}</th>
+                    <th>{{PostList.companyName}}</th>
+                    <th>{{PostList.name}}</th>
+                    <th>{{PostList.compensation | compensation}}</th>
+                    <th>{{PostList.education | education}}</th>
+                    <th>{{PostList.experience | experience}}</th>
+                    <th>{{PostList.updateAt | date:"yyyy/MM/dd"}}</th>
+                    <th>{{PostList.status | status}}</th>
+                    <th>
+                        <button type="button" class="btn btn-info btn-xs" ng-click="vm.postEdit(PostList.id)">编辑</button>
+                        <button type="button" class="btn btn-danger btn-xs">下架</button>
+                        <button type="button" class="btn btn-danger btn-xs">删除</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pages">
+        <div>
+            <span>每页显示</span>
+            <input class="form-control input-sm" ng-model="vm.goSize" type="text">
+            <span>条</span>
+        </div>
+        <ul uib-pagination ng-change="vm.pageChange()" total-items="vm.bigTotalItems" ng-model="vm.CurrentPage"
+            boundary-link-numbers="false" items-per-page="vm.size" first-text="首页" previous-text="《" next-text="》"
+            last-text="末页" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false">
+        </ul>
+        <div>
+            <span>去第</span>
+            <input class="form-control input-sm" ng-model="vm.goPage" type="text">
+            <span>页</span>
+        </div>
+        <button type="button" class="btn btn-default" ng-click="vm.sizeGo()">确认</button>
+    </div>
+</div>

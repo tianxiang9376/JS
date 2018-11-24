@@ -1,0 +1,48 @@
+<div class="RoleDetails">
+    <div class="roleList">
+        <div class="role-line">
+            <label>角色名</label>
+            {{vm.test}}
+            <input class="role-Name" ng-model="vm.roleName" />
+        </div>
+        <ul class="role-form">
+            <li>
+                <div>模块名称</div>
+                <div>权限设置</div>
+            </li>
+            <li ng-repeat="module in vm.moduleShowList">
+                <div ng-if="vm.moduleShowList[$index].parentID == ''">
+                    <input type="checkbox" ng-model="vm.moduleShowList[$index].check" ng-change="vm.changeChoose(module.id,$index)">
+                    {{module.name}}</div>
+
+                <div ng-if="vm.moduleShowList[$index].parentID">
+                    <input type="checkbox" ng-model="vm.moduleShowList[$index].sort" ng-change="vm.changeModule($index)"
+                        ng-disabled="!vm.moduleShowList[$index].use" ng-true-value="'sort'" ng-false-value="">
+                    {{module.name}}</div>
+                <div ng-if="vm.moduleShowList[$index].parentID">
+                    <span><input type="checkbox" ng-disabled="!vm.moduleShowList[$index].use" ng-model="vm.moduleShowList[$index].all"
+                            ng-change="vm.changeAccess($index)">全选</span>
+                    <span><input type="checkbox" ng-disabled="!vm.moduleShowList[$index].use" ng-model="vm.moduleShowList[$index].create"
+                            ng-true-value="'create'" ng-change="vm.closeAll($index)">新增</span>
+                    <span><input type="checkbox" ng-disabled="!vm.moduleShowList[$index].use" ng-model="vm.moduleShowList[$index].update"
+                            ng-true-value="'update'" ng-change="vm.closeAll($index)">编辑</span>
+                    <span><input type="checkbox" ng-disabled="!vm.moduleShowList[$index].use" ng-model="vm.moduleShowList[$index].delete"
+                            ng-true-value="'delete'" ng-change="vm.closeAll($index)">删除</span>
+                </div>
+
+            </li>
+            <li>
+                <div></div>
+                <div><input type="checkbox" ng-model="vm.AllAccess" ng-click="vm.getAllAccess()"><span>全选/全不选</span></div>
+            </li>
+        </ul>
+
+        <div class="role-line middle">
+            <button class="btn btn-success" ng-click=" vm.saveAccess()">保存</button>
+            <button class="btn btn-primary" ng-click='vm.cancel()'>取消</button>
+        </div>
+
+    </div>
+
+
+</div>

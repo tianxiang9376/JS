@@ -1,0 +1,110 @@
+.CompanyDetails {
+    padding: 0.2rem calc(0.2rem + 15px) 0.2rem 0.2rem;
+    margin-left: calc(2rem + 15px);
+    margin-top: .8rem;
+    background: #eee;
+
+    .form-border {
+        border-bottom: 1px solid #4f4f4f
+    }
+
+    .form-width {
+        width: 100% !important;
+    }
+
+    .form-back {
+        background: #eee;
+        overflow: hidden;
+
+        button {
+            float: right;
+            margin-right: .2rem;
+        }
+    }
+
+    .form-control {
+        width: 2rem;
+    }
+
+    .companyTag {
+        li {
+            display: inline-block;
+            color: white;
+            padding: .1rem;
+            margin-right: .1rem;
+            background-color: #337ab7;
+            border-radius: 5px;
+
+            span {
+                display: inline-block;
+            }
+
+            .Tag1 {
+                width: .6rem;
+            }
+
+            .Tag2 {
+                width: .1rem;
+                cursor: pointer;
+            }
+
+        }
+
+    }
+
+    >form {
+        margin-bottom: .5rem;
+        border: #4f4f4f solid 1px;
+        border-radius: .05rem;
+        background: #fff;
+
+        .form-ctrl {
+            display: inline-block;
+            width: 49%;
+            margin: .1rem 0;
+            padding-left: .1rem;
+        }
+
+        table {
+            margin: 0;
+            border-bottom: #eee solid 1px;
+
+            .thead {
+                border-top: #999 solid 1px;
+
+                >th {
+                    max-width: 1rem;
+                    border: none;
+                    text-align: center;
+                    vertical-align: middle;
+                    word-wrap: break-word;
+                }
+            }
+        }
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: textfield;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+
+}
+
+label {
+    width: 1rem;
+    font-size: .12rem;
+    color: #4f4f4f;
+}
+
+#editor {
+    flex-flow: wrap;
+}
+
+.error {
+    font-size: .1rem;
+    color: red;
+}

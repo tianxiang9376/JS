@@ -1,34 +1,74 @@
-.red{
-    color:red;
+.red {
+    color: red;
 }
 
-.add{
-    width:80%;
-    margin:1rem auto;
+.green{
+    color:green;
+}
+.add {
+    width: 80%;
+    margin: 1rem auto;
     font-size: 2rem;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
     overflow: hidden;
 }
 
-.add-title{
-    padding:.5rem;
+.add-title {
+    padding: .5rem;
     border-bottom: 1px solid #ccc;
 }
 
-.add-style{
-    padding:.5rem;
+.add-style {
+    padding: .5rem;
     label{
-        vertical-align: middle;
+        vertical-align: top;
     }
 }
 
-.add-list-style{
-    width:100%;
-    th{
+.add-list-style {
+    width: 100%;
+    text-align: center;
+
+    th {
+        padding:1rem;
+        text-align: center;
+        width: 15%;
+        border:1px solid #ccc;
+        border-right:none;
+    }
+
+    td {
+        padding:1rem;
+        width: 15%;
+        height: auto;
+        word-wrap: break-word;
+        word-break: break-all;
+        overflow: hidden;
         text-align: center;
         border:1px solid #ccc;
-    }
-    td{
-        text-align: center;
+        border-right:none;
+        button{
+            margin:1rem auto;
+        }
     }
 }
+
+.add-clear-left-border{
+    border-left: none!important;
+}
+
+.add-bottom-btn {
+    float: right;
+    padding:1rem;
+    button{
+        width:10rem;
+    }
+}
+
+.add-view {
+    width:100%;
+    text-align:center;
+    margin:1rem auto;
+    padding:1rem;
+}
+

@@ -1,0 +1,27 @@
+<div>
+    <div class="loginImg">
+        <form name="loginForm" novalidate>
+            <div class="login-mode">
+                <p class="login-text">后台登录</p>
+                <span class="glyphicon glyphicon-user name" aria-hidden="true"></span>
+                <input type="text" name="uname" 
+                       class="form-control input" 
+                       placeholder="请输入用户名" ng-model="vm.name"
+                       autocomplete="off" 
+                       ng-class="{warn:loginForm.$submitted && loginForm.uname.$error.required}"
+                       required />
+                <br>
+                <span class="glyphicon glyphicon-lock password" aria-hidden="true"></span>
+                <input  type="password" name="upwd"
+                        ng-model="vm.pwd" class="form-control input" 
+                        placeholder="请输入密码" autocomplete="off"
+                        ng-class="{'form-control':1,warn:loginForm.$submitted && loginForm.upwd.$error.required}"
+                        required />
+                <div class="error">
+                    <p class="error text-danger" ng-show="vm.showValidation" style="line-height: .3rem;">账号或密码错误</p>
+                </div>
+                <button id="login" type="submit" ng-click="vm.loginClick()" ng-disabled="loginForm.$invalid">登录</button>
+            </div>
+        </form>
+    </div>
+</div>

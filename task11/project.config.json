@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.3.2",
 	"appid": "wx98185172e95162e5",
 	"projectname": "modemo",
 	"isGameTourist": false,

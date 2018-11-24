@@ -1,0 +1,85 @@
+<div ng-controller="ArticleDetails" class="detail">
+    <form class="form-inline" name="detailForm">
+        <div class="top">
+            <span>{{titleBar}}</span>
+        </div>
+        <div class="form-ctrl">
+            <label for="exampleInputName2">标题名称</label>
+            <input type="text" id="title" name="title" class="form-control" ng-model="title" ng-blur="titleStatus=true"
+                ng-focus="titleStatus=false" required>
+            <span class="error text-danger" ng-show="detailForm.title.$error.required && titleStatus">*标题不能为空</span>
+        </div>
+        <div class="form-ctrl">
+            <label for="exampleInputName2">类型</label>
+            <select name="typeName" class="form-control" ng-model="type" ng-options="type.id as type.name for type in type_data"
+                ng-change="type_change(type)" required>
+                <option value="">请选择</option>
+            </select>
+            <span class="error text-danger" ng-show="type == null">*请选择类型</span>
+        </div>
+        <div class="form-ctrl">
+            <label for="exampleInputName2" ng-show="type==3">行业</label>
+            <select class="form-control" ng-model="industry" ng-show="type==3" ng-options="industry.id as industry.name for industry in industry_data"
+                ng-change="industry_change(industry)">
+            </select>
+            <span class="error text-danger" ng-show="industry == null && type==3">*请选择行业</span>
+        </div>
+        <div class="form-ctrl">
+            <div>
+                <label for="exampleInputName2">说明</label>
+                <div id="editor"></div>
+            </div>
+        </div>
+        <div class="form-ctrl">
+            <label for="exampleInputName2">跳转链接</label>
+            <input type="url" id="url" class="form-control" ng-model="link" name="url" ng-blur="urlStatus=true"
+                ng-focus="urlStatus=false" required>
+            <span class="error text-danger" ng-show="detailForm.url.$error.required && urlStatus">*url地址不能为空</span>
+            <span class="error text-danger" ng-show="detailForm.url.$error.url && urlStatus">*url地址格式不正确，以http开头</span>
+        </div>
+        <div class="form-ctrl">
+            <label for="exampleInputName2">配图</label>
+            <button ng-click="imgClear()" type="button" class="btn btn-primary">
+                <label class="ui_button ui_button_primary" for="file" style="color: #fff;font-size: .12rem;text-align: center;">上传文件</label>
+                <input type="file" id="file" name="file" ngf-select="" ngf-pattern="'image/*'" ngf-accept="'image/*'"
+                    ng-model="myFiles" ngf-max-size="2MB" required="" style="position:absolute;clip:rect(0 0 0 0);">
+            </button>
+        </div>
+        <div class="form-ctrl">
+            <img ngf-src="myFiles" style="width: 300px;height: 200px;" />
+            <!-- <img ng-if="img_view" ngf-src="{{img_view}}"/> -->
+        </div>
+
+        <table class="table table-hover">
+            <tbody>
+                <tr class="thead">
+                    <th style="width: 50%;">图片名</th>
+                    <th>文件大小</th>
+                    <th>进度</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="thead" ng-if="myFiles" ng-show="myFiles.name">
+                    <th style="width: 50%;">{{myFiles.name}}</th>
+                    <th>{{myFiles.size/1024 | number:3}}KB</th>
+                    <th>
+                        <div class="progress text-center" style="margin-bottom: 0;">
+                            <div class="progress-bar" role="progressbar" ng-style="{'width':myFiles.progress + '%'}"></div>
+                        </div>
+                    </th>
+                    <th>{{ok}}</th>
+                    <th>
+                        <button type="button" class="btn btn-success btn-sm" ng-click="imgUpload(myFiles)" ng-disabled="img_view">上传</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="imgDelete(myFiles)">删除</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table><br>
+        <div class="form-ctrl">
+            <button type="button" class="btn btn-success" ng-click="online()" ng-disabled="detailForm.$invalid || industry == null && type==3 || !img_view" ng-show="onlineSub">立即上线</button>
+            <button type="button" class="btn btn-info" ng-click="draft()" ng-disabled="detailForm.$invalid || industry == null && type==3 || !img_view" ng-show="draftSub">存为草稿</button>
+            <button type="button" class="btn btn-success" ng-click="update()" ng-disabled="detailForm.$invalid || industry == null && type==3 || !img_view" ng-show="editSub">确认提交</button>
+            <button type="button" class="btn btn-danger" ng-click="cancel()" style="float: right;">取消</button>
+        </div>
+    </form>
+</div>

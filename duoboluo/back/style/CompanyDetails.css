@@ -1,0 +1,105 @@
+.CompanyDetails {
+  padding: 0.2rem calc(0.2rem + 15px) 0.2rem 0.2rem;
+  margin-left: calc(2rem + 15px);
+  margin-top: .8rem;
+  background: #eee;
+}
+
+.CompanyDetails .form-border {
+  border-bottom: 1px solid #4f4f4f;
+}
+
+.CompanyDetails .form-width {
+  width: 100% !important;
+}
+
+.CompanyDetails .form-back {
+  background: #eee;
+  overflow: hidden;
+}
+
+.CompanyDetails .form-back button {
+  float: right;
+  margin-right: .2rem;
+}
+
+.CompanyDetails .form-control {
+  width: 2rem;
+}
+
+.CompanyDetails .companyTag li {
+  display: inline-block;
+  color: white;
+  padding: .1rem;
+  margin-right: .1rem;
+  background-color: #337ab7;
+  border-radius: 5px;
+}
+
+.CompanyDetails .companyTag li span {
+  display: inline-block;
+}
+
+.CompanyDetails .companyTag li .Tag1 {
+  width: .6rem;
+}
+
+.CompanyDetails .companyTag li .Tag2 {
+  width: .1rem;
+  cursor: pointer;
+}
+
+.CompanyDetails > form {
+  margin-bottom: .5rem;
+  border: #4f4f4f solid 1px;
+  border-radius: .05rem;
+  background: #fff;
+}
+
+.CompanyDetails > form .form-ctrl {
+  display: inline-block;
+  width: 49%;
+  margin: .1rem 0;
+  padding-left: .1rem;
+}
+
+.CompanyDetails > form table {
+  margin: 0;
+  border-bottom: #eee solid 1px;
+}
+
+.CompanyDetails > form table .thead {
+  border-top: #999 solid 1px;
+}
+
+.CompanyDetails > form table .thead > th {
+  max-width: 1rem;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: textfield;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+label {
+  width: 1rem;
+  font-size: .12rem;
+  color: #4f4f4f;
+}
+
+#editor {
+  flex-flow: wrap;
+}
+
+.error {
+  font-size: .1rem;
+  color: red;
+}

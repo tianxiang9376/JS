@@ -1,0 +1,65 @@
+.module {
+  padding: 0.2rem calc(0.2rem + 15px) 0.2rem 0.2rem;
+  margin-left: calc(2rem + 15px);
+  height: 100vh;
+  background: #eee;
+}
+
+.MO-list {
+  margin-top: .8rem;
+  border: #4f4f4f solid 1px;
+  border-radius: .05rem;
+  background: #fff;
+}
+
+.MO-list .list-HD {
+  height: .3rem;
+  padding: 0 0.2rem;
+  border: none;
+  background: #212121;
+  border-top-right-radius: .05rem;
+  border-top-left-radius: .05rem;
+}
+
+.MO-list .list-HD > span {
+  line-height: .3rem;
+  font-size: .12rem;
+  color: #eee;
+}
+
+.MO-list .list-HD > button {
+  float: right;
+  margin-top: .045rem;
+}
+
+.MO-list > table {
+  margin: 0;
+  border: none;
+}
+
+.MO-list > table .thead {
+  border: none;
+}
+
+.MO-list > table .thead > th {
+  max-width: 1rem;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.pages > div {
+  display: flex;
+  align-items: center;
+}
+
+.pages input {
+  width: .4rem;
+}

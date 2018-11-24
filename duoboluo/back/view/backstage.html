@@ -1,0 +1,27 @@
+<div class="row">
+    <header>
+        <h3>测试系统</h3>
+        <div>
+            <a href="">{{vm.role}}</a>
+            <a href="">{{vm.accountName}}</a>
+            <a href=""><span class="glyphicon glyphicon-off" aria-hiddn="true" ng-click="vm.logout()"></span></a>
+        </div>
+    </header>
+    <nav role="navigation">
+        <div class="collapse navbar-collapse" uib-collapse="true"></div>
+        <uib-accordion class="list-group" close-others="true">
+            <button type="button" uib-accordion-group class="list-group-item" ng-repeat="menu in vm.menus" is-open="menu.open">
+                <uib-accordion-heading>
+                    <span ng-click="vm.navtitle($index)">{{menu.title}}</span>
+                    <span ng-click="vm.navtitle($index)" class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': menu.open, 'glyphicon-chevron-right': !menu.open}"></span>
+                </uib-accordion-heading>
+                <div ng-repeat="list in menu.lists" ng-click="vm.navList($parent.$index,$index)" ng-class="{true:'organCheck'}[list.isOrgancheck]">
+                    <a ui-sref="{{list.url}}">
+                        {{list.content}}
+                    </a>
+                </div>
+            </button>
+        </uib-accordion>
+    </nav>
+    <div ui-view="" class="secondView"></div>
+</div>

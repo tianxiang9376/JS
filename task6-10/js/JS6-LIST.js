@@ -1,28 +1,9 @@
-myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyle) {
+myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyle,$filter) {
     //日历选择器
     $scope.dat = new Date();
     $scope.format = "yyyy/MM/dd";
     $scope.altInputFormats = ['yyyy/M!/d!'];
 
-    // 取消周末选项
-    function disabled(data) {
-        var date = data.date,
-            mode = data.mode;
-        return (mode === 'day' && false);
-    }
-    //设置最大可选择时间
-    $scope.dateOptions = {
-        dateDisabled: disabled,
-        formatYear: 'yy',
-        maxDate: new Date(2020, 1, 1),
-        minDate: new Date(),
-        startingDay: 1
-    };
-    $scope.inlineOptions = {
-        customClass: getDayClass,
-        minDate: new Date(),
-        showWeeks: true
-    };
     $scope.popup1 = {
         opened: false
     };
@@ -36,15 +17,6 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
         $scope.popup2.opened = true;
     };
 
-
-    $scope.open1 = function () {
-        $scope.popup1.opened = true;
-    };
-
-    $scope.open2 = function () {
-        $scope.popup2.opened = true;
-    };
-
     $scope.popup1 = {
         opened: false
     };
@@ -53,30 +25,7 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
         opened: false
     };
 
-    function getDayClass(data) {
-        var date = data.date,
-            mode = data.mode;
-        if (mode === 'day') {
-            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
 
-            for (var i = 0; i < $scope.events.length; i++) {
-                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
-
-                if (dayToCheck === currentDay) {
-                    return $scope.events[i].status;
-                }
-            }
-        }
-        return '';
-    }
-
-
-    //搜索框的类型
-
-    $scope.TypeName = ListStyle.select; //从ListStyle获取到下拉框，填充到网页的下拉框选项中
-    $scope.StatusName = ListStyle.status;
-    $scope.type = ListStyle.select[0].id; //获取从网页选择的下拉框选项，转换为服务器请求参数，传参
-    $scope.status = ListStyle.status[0].id;
 
 
     //服务器请求列表
@@ -84,7 +33,7 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
         method: 'GET',
         url: '/carrots-admin-ajax/a/article/search',
         params: {
-            //传参，把网页获取的页码传递给服务器
+            //接收路由传参的数据，发送给服务器
             //传参是一个点，需要在路由中设置传参的参数，否则GG
             page: $stateParams.page,
             type: $stateParams.type,
@@ -96,22 +45,37 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
             size: $stateParams.size
         }
     }).then(function (response) {
+        //获取服务器列表
+        $scope.list = response.data.data.articleList;
+        //获取服务器返回的当前页面的列表条目
         $scope.size = response.data.data.size;
-        $scope.list = response.data.data.articleList; //获取列表
-        $scope.bigTotalItems = response.data.data.total; //列表总数
-        $scope.currentPage = $stateParams.page; //服务器返回的页码列表 
+        //本来想用于处理时间倒序的，但是发现时间倒序是服务器返回的数据问题
+        // let datelist =response.data.data.articleList; 
+        // for (var i = 0; i < datelist.length; i++) {
+        //     //外层循环一次，就拿arr[i] 和 内层循环arr.legend次的 arr[j] 做对比
+        //     for (var j = i; j < datelist.length; j++) {
+        //         if (datelist[i].updateAt < datelist[j].updateAt) {
+        //             //如果arr[j]大就把此时的值赋值给最大值变量max
+        //             max = datelist[j];
+        //             datelist[j] = datelist[i];
+        //             datelist[i] = max;
+        //         }
+        //     }
+        // }
+        //服务器列表总数
+        $scope.bigTotalItems = response.data.data.total;
+        //通过路由传参返回的页码列表 
+        $scope.currentPage = $stateParams.page;
         $scope.perpage = response.data.data.size;
-        //容错处理，在第一次载入列表以及没有选择搜索的时候，清除所有搜索选项
-        if (($stateParams.type) === undefined) {
-            $scope.type = "";
-        } else {
-            $scope.type = parseInt($stateParams.type);
+        //容错处理，在重新加载页面时，通过路由传参参数设定当前页面的搜索选项
+        
+        if ($stateParams.type = !undefined) {
+            $scope.type = $stateParams.type;
         }
-        if ($stateParams.status === undefined) {
-            $scope.status = "";
-        } else {
-            $scope.status = parseInt($stateParams.status);
+        if ($stateParams.status = !undefined) {
+            $scope.status = $stateParams.status;
         }
+
         if ($stateParams.title === undefined) {
             $scope.title = "";
         } else {
@@ -122,17 +86,32 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
         } else {
             $scope.author = $stateParams.author;
         }
-
-        if ($stateParams.startAt) {
-            $scope.startday = parseInt($stateParams.startAt);
+        
+        if ($stateParams.startAt === undefined) {
+            $scope.startday = undefined;
+        } else {
+            let starttime = parseInt($stateParams.startAt);
+            // 将从url中获取到的时间戳转换为标准时间
+            // 让插件可以识别时间格式，启用禁用时间选择
+            $scope.startday =new Date(starttime)
+        }
+        if ($stateParams.endAt === undefined) {
+            $scope.endday = undefined;
+        } else {
+            let endtime = parseInt($stateParams.endAt);
+            $scope.endday = new Date(endtime);
 
         }
-        if ($stateParams.endAt) {
-            $scope.endday = parseInt($stateParams.endAt);
-        }
-
     });
-    // 上下线状态显示
+
+    //搜索框的类型
+    //从ListStyle获取到下拉框，填充到网页的下拉框选项中
+    $scope.TypeName = ListStyle.select;
+    $scope.type = ListStyle.select[0].id;
+    $scope.StatusName = ListStyle.status;
+    //关联下拉框的选项和实际需要发送给服务器的数据选项   
+    $scope.status = ListStyle.status[0].id;
+    // 上下线按钮文字显示
     $scope.btnStatus = function () {
         if (this.x.status === 1) {
             return "上线";
@@ -146,7 +125,8 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
         var id = this.x.id;
         // 草稿改变
         if (this.x.status === 1) {
-            bootbox.confirm({ //要用这个弹窗需要引用bootbox.js和bootstrap.js,不然报错
+            //使用这个弹窗需要引用bootbox.js和bootstrap.js,不然报错
+            bootbox.confirm({
                 message: "确定要上线？",
                 buttons: {
                     confirm: {
@@ -242,8 +222,8 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
                 if (result) {
                     $http({
                         method: 'delete',
+                        // 请求参数这样写成这样
                         url: '/carrots-admin-ajax/a/u/article/' + id,
-                        // 请求参数这样写
                     }).then(function () {
                         $state.go($state.current, {}, {
                             reload: true
@@ -258,66 +238,81 @@ myApp.controller("list", function ($scope, $http, $state, $stateParams, ListStyl
     $scope.maxSize = 3;
     //页面跳转
     $scope.page = function () {
-        $state.go("backstage.list", {
-            page: $scope.currentPage, //页面跳转到服务器返回的页码列表
-            size: $scope.size
-        }, {
-            reload: true
-        });
+        //如果列表行数不是大于零的正整数，弹窗
+        if (!(/(^[1-9]\d*$)/.test($scope.size))) {
+            bootbox.alert("请输入大于0的整数行数");
+        } else {
+            $state.go("backstage.list", {
+                page: $scope.currentPage, //页面跳转到服务器返回的页码列表
+                size: $scope.size
+            }, {
+                reload: true
+            });
+        }
     }
     //跳转到第几页和每页展示几行
     $scope.letgo = function () {
-        $state.go("backstage.list", {
-            page: $scope.gotopage, //页面跳转到服务器返回的页码列表
-            size: $scope.size
+        //创建一个中间变量判断页码是否为大于0的正整数，正则表达式判断
+        let pagecheck = (/(^[1-9]\d*$)/.test($scope.gotopage))
+        //如果页码不是未定义或者不为空或者不是大于零的正整数，弹窗
+        if ($scope.gotopage != undefined && $scope.gotopage != "" && pagecheck === false) {
+            bootbox.alert("请输入大于0的整数页码");
+            //如果列表行数不是大于零的正整数，弹窗
+        } else if (!(/(^[1-9]\d*$)/.test($scope.size))) {
+            bootbox.alert("请输入大于0的整数行数");
+        } else {
+            $state.go("backstage.list", {
+                page: $scope.gotopage, //页面跳转到服务器返回的页码列表
+                size: $scope.size
 
-        }, {
-            reload: true
-        });
+            }, {
+                reload: true
+            });
+        }
+
     }
+
 
     //搜索，传参
     $scope.search = function () {
-
         var time1, time2;
-
+        //时间戳转换
         if ($scope.startday) {
             var date1 = new Date($scope.startday);
             time1 = date1.valueOf();
-            console.log("第一个时间" + time1);
         }
         if ($scope.endday) {
             var date2 = new Date($scope.endday);
-            // 想判断第二天如果没填怎么传
+            //如果开始时间等于结束时间，结束时间的时间戳加1天
             if (time1 !== date2.valueOf()) {
                 time2 = date2.valueOf();
             } else {
                 time2 = date1.valueOf() + 86399000;
             }
-            console.log(time2);
         }
-        $state.go("backstage.list", {
-            status: $scope.status,
-            type: $scope.type,
-            author: $scope.author,
-            title: $scope.title,
-            startAt: time1,
-            endAt: time2
-
-        }, {
-            reload: true
-        });
-
+            
+            $state.go("backstage.list", {
+                status: $scope.status,
+                type: $scope.type,
+                author: $scope.author,
+                title: $scope.title,
+                startAt: time1,
+                endAt: time2
+            }, {
+                reload: true
+            });
+        
     }
-    //清除，把所有参数清除
+    //点击清空，清除所有参数
     $scope.clear = function () {
         $state.go("backstage.list", {
             type: "",
-            status: null,
-            startAt: null,
-            endAt: null,
-            author: null,
-            title: null
+            status: "",
+            //时间不能设置为""和null这种格式，服务器会判断数据为NaN(不是数字)，会报错
+            startAt: undefined,
+            endAt: undefined,
+            author: "",
+            title: ""
         }, {
             reload: true
         })

@@ -454,7 +454,7 @@ Page({
     console.log("排序后的数组",weight);
     //新建一个数组，把重新排序好的权重数组中的前三个元素的职业序号放入
    var pronum =[];
-  for(var i = 0;i<3;i++){
+  for(let i = 0;i<3;i++){
     pronum[i]=weight[i].num;
   }
    //本地缓存传参

@@ -1,0 +1,48 @@
+.RoleDetails {
+    padding: .2rem calc(0.2rem + 15px) .2rem .2rem;
+    margin-left: calc(2rem + 15px);
+    height: 100vh;
+    background: #eee;
+}
+
+.roleList {
+    margin-top: .8rem;
+    border: #4f4f4f solid 1px;
+    border-radius: .05rem;
+    background: #fff;
+    .middle{
+        text-align: center;
+    }
+    .role-form {
+        font-size: 14px;
+        font-weight: bold;
+        li {
+            width: 100%;
+            margin: .1rem auto;
+        }
+
+        div {
+            display: inline-block;
+            width: 49%;
+            text-align: center;
+        }
+    }
+
+    .role-line {
+        margin: .2rem;
+
+        .role-Name {
+            width: 80%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    }
+
+}

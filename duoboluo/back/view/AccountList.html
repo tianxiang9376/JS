@@ -1,0 +1,70 @@
+<div class="account">
+
+    <div class="AC-info">
+        <form class="form-inline">
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">角色</label>
+                <select ng-if="vm.roleNameArr" class="form-control" ng-model="vm.roleId" ng-options="a.id as a.name for a in vm.roleNameArr">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <button type="button" class="btn btn-success" ng-click="vm.searchRole()">搜索</button>
+            </div>
+        </form>
+    </div>
+    <div class="AC-list">
+        <div class="list-HD">
+            <span>账户列表</span>
+            <button type="button" class="btn btn-success btn-xs" ng-disabled="vm.createBtn" ng-click="vm.addAccount()">+新增账户</button>
+        </div>
+        
+        <table class="table table-hover">
+            <tbody>
+                <tr class="thead">
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>角色</th>
+                    <th>创建人</th>
+                    <th>创建时间</th>
+                    <th>更新人</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="thead" ng-repeat="account in vm.accountShowList">
+                    <th>{{account.id}}</th>
+                    <th>{{account.name}}</th>
+                    <th>{{account.roleName}}</th>
+                    <th>{{account.createName}}</th>
+                    <th>{{account.createAt| date:"yyyy/MM/dd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hh:mm:ss"}}</th>
+                    <th>{{account.updateName}}</th>
+                    <th>{{account.updateAt| date:"yyyy/MM/dd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hh:mm:ss"}}</th>
+                    <th>
+                        <button type="button" class="btn btn-info btn-xs" ng-disabled="vm.updateBtn" ng-click = "vm.editAccount(account.id)">编辑</button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-disabled="vm.deleteBtn" ng-click="vm.delAccount(account.id)">删除</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pages">
+        <div>
+            <span>每页显示</span>
+            <input class="form-control input-sm" ng-model="vm.goSize" type="text" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+            <span>条</span>
+        </div>
+
+        <!-- <ul uib-pagination ng-change="vm.pageChange()" total-items="vm.bigTotalItems" ng-model="vm.currentPage"
+            boundary-link-numbers="false" items-per-page="vm.size" first-text="首页" previous-text="《" next-text="》"
+            last-text="末页" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false"></ul> -->
+        <div>
+            <button class="btn btn-success" ng-click="vm.previousText()">上一页</button>
+            <button class="btn btn-success" ng-click="vm.nextText()">下一页</button>
+        </div>
+        <div>
+            <span>第</span>
+            <input class="form-control input-sm" ng-model="vm.goPage" type="text" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+            <span>页</span>
+        </div>
+        <button type="button" class="btn btn-default" ng-click="vm.sizeGo()">确认</button>
+    </div>
+</div>

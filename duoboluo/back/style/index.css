@@ -1,0 +1,131 @@
+html {
+  font-size: 625%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+button {
+  outline: none;
+}
+
+.welcome {
+  position: relative;
+  top: 0.8rem;
+  left: 2.2rem;
+  font-size: .5rem;
+}
+
+.secondView {
+  background: #eee;
+}
+
+.row header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% + 15px);
+  height: .8rem;
+  background: #1f262d;
+  z-index: 2;
+}
+
+.row header > h3 {
+  margin: 0;
+  line-height: .8rem;
+  padding-left: .6rem;
+  color: #a4d3ee;
+  font-size: .3rem;
+  font-weight: 1000;
+}
+
+.row header a,
+.row header span {
+  line-height: .8rem;
+  padding-right: .3rem;
+  font-size: .16rem;
+  color: #eee;
+}
+
+.row header a:hover,
+.row header span:hover {
+  color: #a4d3ee;
+}
+
+.row nav {
+  position: fixed;
+  left: 0;
+  top: .8rem;
+  padding-right: 0 !important;
+  width: 2rem;
+  height: 100vh;
+  border-radius: 0;
+  background: #2e363f;
+}
+
+.row nav .panel {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  text-align: center;
+  color: #eee;
+  background: #2e363f;
+}
+
+.row nav .panel .panel-heading {
+  border-bottom: #1f262d solid 1px;
+}
+
+.row nav .panel .panel-heading .panel-title {
+  font-size: .18rem;
+  letter-spacing: -3px;
+}
+
+.row nav .panel .panel-heading .panel-title .accordion-toggle {
+  text-decoration: none;
+}
+
+.row nav .panel .panel-heading .panel-title .accordion-toggle:hover {
+  color: #eee;
+}
+
+.row nav .panel-body {
+  padding: 0;
+  font-size: .16rem;
+  letter-spacing: 2px;
+  background: #1f262d;
+}
+
+.row nav .panel-body .ng-binding {
+  display: inline-block;
+  width: 100%;
+  height: .4rem;
+  line-height: .4rem;
+  text-decoration: none;
+  border-bottom: #4f4f4f solid 1px;
+  color: #eee;
+}
+
+.row nav .panel-body .ng-binding:hover {
+  background: #28b779;
+  color: #eee;
+}
+
+.organCheck {
+  background: #28b779;
+}
+
+.redchange {
+  background: #212121;
+}

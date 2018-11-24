@@ -1,0 +1,36 @@
+<div class="ModuleDetails">
+    <div class="AC-info">
+        <!-- {{vm.test}} -->
+        <form name="accountForm">
+            <div class="ac-line">
+                <label>*名称</label>
+
+                <input ng-model="vm.moduleName" type="text" name="moduleName" ng-blur="moduleNameStatus=true" ng-focus="moduleNameStatus=false"
+                    required />
+                <span class="error" ng-show="accountForm.moduleName.$error.required">*请输入模块名称</span>
+            </div>
+
+            <div class="ac-line">
+                <label>MenuId</label>
+                <input ng-model="vm.menuId" type="text" />
+            </div>
+            <div class="ac-line">
+                <label>URL地址</label>
+                <input ng-model="vm.url" type="text" />
+            </div>
+            <div class="ac-line">
+                <label>父模块ID</label>
+                <input ng-model="vm.parentId" type="text" />
+            </div>
+            <div class="ac-line">
+                <label>模块类别</label>
+                <input ng-model="vm.moduleType" type="text" />
+             
+            </div>
+            <div class="ac-line middle">
+                <button class="btn btn-success" ng-click="vm.saveModule()">保存</button>
+                <button class="btn btn-primary" ng-click='vm.cancel()'>取消</button>
+            </div>
+        </form>
+    </div>
+</div>

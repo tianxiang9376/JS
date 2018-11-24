@@ -1,0 +1,108 @@
+.Po-detail {
+    padding: .2rem calc(0.2rem + 15px) .2rem .2rem;
+    margin-left: calc(2rem + 15px);
+    height: 100vh;
+    background: #eee;
+
+    .Po-detailInfo {
+        margin-top: .8rem;
+        border: #4f4f4f solid 1px;
+        border-radius: .05rem;
+        background: #fff;
+
+        >form {
+            .form-ctrl {
+                display: inline-block;
+                width: 49%;
+                margin: .1rem 0;
+                padding-left: .1rem;
+
+                >label {
+                    width: 1rem;
+
+                    >span {
+                        padding: 5px 10px;
+                        background: #5bc0de;
+                        color: #fff;
+                        border-radius: 5px;
+                    }
+                }
+
+                .form-control {
+                    width: 2rem;
+                }
+            }
+
+            .form-width {
+                width: 50%;
+
+                .control-label {
+                    width: auto;
+                }
+
+                .form-control {
+                    width: 0.85rem;
+                }
+            }
+        }
+
+        .detail-HD {
+            height: .3rem;
+            padding: 0 0.2rem;
+            border: none;
+            background: #212121;
+            border-top-right-radius: .05rem;
+            border-top-left-radius: .05rem;
+
+            >span {
+                line-height: .3rem;
+                font-size: .12rem;
+                color: #eee;
+            }
+
+            >select {
+                margin-top: 6px;
+            }
+        }
+    }
+
+    .Po-describe {
+        margin-top: .2rem;
+        border: #4f4f4f solid 1px;
+        border-radius: .05rem;
+        background: #fff;
+
+        >form {
+            .form-ctrl {
+                display: inline-block;
+                width: 100%;
+                margin: .1rem 0;
+                padding-left: .1rem;
+
+                >label {
+                    width: 1rem;
+                }
+
+                .form-control {
+                    width: 70vw;
+                    height: 1.5rem;
+                }
+            }
+        }
+
+        .describe-HD {
+            height: .3rem;
+            padding: 0 0.2rem;
+            border: none;
+            background: #212121;
+            border-top-right-radius: .05rem;
+            border-top-left-radius: .05rem;
+
+            >span {
+                line-height: .3rem;
+                font-size: .12rem;
+                color: #eee;
+            }
+        }
+    }
+}

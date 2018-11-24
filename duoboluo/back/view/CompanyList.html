@@ -1,0 +1,96 @@
+<div class="Company">
+    <div class="CP-info">
+        <form class="form-inline">
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">公司名称</label>
+                <input type="text" class="form-control" ng-model="vm.name" id="exampleInputName2">
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">公司行业</label>
+                <select class="form-control" ng-model="vm.industry" ng-options="a.id as a.name for a in vm.industrySelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">融资规模</label>
+                <select class="form-control" ng-model="vm.financing" ng-options="a.id as a.name for a in vm.financingSelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">认证状态</label>
+                <select class="form-control" ng-model="vm.approvedStatus" ng-options="a.id as a.name for a in vm.approvedStatusSelect">
+                </select>
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">解冻状态</label>
+
+                <select class="form-control" ng-model="vm.freezedStatus" ng-options="a.id as a.name for a in vm.freezedStatusSelect">
+                </select>
+
+            </div>
+            <div class="form-group form-ctrl">
+                <label for="exampleInputName2">地区</label>
+                <select class="form-control" ng-model="vm.pro" ng-change="vm.getCity(vm.pro)" ng-options="a.ProID as a.ProName for a in vm.provinceSelect"></select>
+                <select class="form-control" ng-model="vm.city" ng-change="vm.getCounty(vm.city)" ng-options="a.CityID as a.CityName for a in vm.citySelect"></select>
+                <select class="form-control" ng-model="vm.county" ng-options="a.Id as a.countyName for a in vm.countySelect"></select>
+            </div>
+            <div class="form-group form-ctrl">
+                <button type="button" class="btn btn-success" ng-click="vm.search()">搜索</button>
+                <button type="button" class="btn btn-danger" ng-click="vm.empty()">清空</button>
+            </div>
+        </form>
+    </div>
+    <div class="CP-list">
+        <div class="list-HD">
+            <span>公司列表</span>
+            <button type="button" class="btn btn-success btn-xs" ng-disable="vm.createBtn" ng-click="vm.companyEdit()">+新增</button>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr class="thead">
+                    <th>序号</th>
+                    <th>公司名称</th>
+                    <th>公司行业</th>
+                    <th>地区</th>
+                    <th>融资规模</th>
+                    <th>认证状态</th>
+                    <th>冻结状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="thead" ng-repeat="CompanyList in vm.companyList">
+                    <th>{{$index+1}}</th>
+                    <th>{{CompanyList.name}}</th>
+                    <th>{{CompanyList.industryList[0] | industry}}</th>
+                    <th>{{CompanyList.city}}</th>
+                    <th>{{CompanyList.financing | financing}}</th>
+                    <th>{{CompanyList.approved | approvedStatus}}</th>
+                    <th>{{CompanyList.freezed | freezedStatus}}</th>
+                    <th>
+                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.companyPosition(CompanyList.id)">职位</button>
+                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.companyApproved(CompanyList.id,CompanyList.approved)">{{vm.approvedBtnStatus(CompanyList.approved)}}</button>
+                        <button type="button" class="btn btn-info btn-xs" ng-click="vm.companyEdit(CompanyList.id)"
+                            ng-disabled="vm.updateBtn">编辑</button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="vm.companyFreezed(CompanyList.id,CompanyList.freezed)">{{vm.freezedBtnStatus(CompanyList.freezed)}}</button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="vm.companyDelete(CompanyList.id)"
+                            ng-disabled="vm.deleteBtn">删除</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pages">
+        <div>
+            <span>每页显示</span>
+            <input class="form-control input-sm" ng-model="vm.goSize" type="text" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+            <span>条</span>
+        </div>
+        <ul uib-pagination ng-change="vm.pageChange()" total-items="vm.bigTotalItems" ng-model="vm.currentPage"
+            boundary-link-numbers="false" items-per-page="vm.size" first-text="首页" previous-text="《" next-text="》"
+            last-text="末页" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false"></ul>
+        <div>
+            <span>第</span>
+            <input class="form-control input-sm" ng-model="vm.goPage" type="text" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+            <span>页</span>
+        </div>
+        <button type="button" class="btn btn-default" ng-click="vm.sizeGo()">确认</button>
+    </div>
+</div>

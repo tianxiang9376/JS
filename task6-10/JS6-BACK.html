@@ -1,16 +1,62 @@
+<div>
+    <header>
+        <div class="head-right">
+            <span>管理员</span>
+            <span>admin</span>
+            <button class="btn" type="button"  ng-click = "signout()">退出</button>
+        </div>
+    </header>
+    <aside class="back-list">
+        <div class="back-list-title">萝卜多后台管理系统</div>
+        <!-- track by $index，规避数组中有重复的元素导致ng-repeat报错的问题 -->
+        <!-- ng-repeat渲染的元素都会生成id，基本数据类型的id在渲染时会取名为自己的值 -->
+        <!-- 如果在一个数组中有同名的数据，就会生成同名的id,id具有唯一性，所以会报错。 -->
+        <!-- $index是ng-repeat渲染出来的元素的下标 -->
+        <!-- ng-init="oneindex = $index"可以获得当前ng-repeat渲染的元素数组的索引值 -->
+        <div ng-repeat="x in asiderlist track by $index"  ng-init="oneindex = $index">
+            <span ng-click="changelist(oneindex)">{{x.name}}</span>
+            <ul ng-show="x.show" >
+                <li 
+                ng-repeat="y in x.title track by $index" 
+                ng-init="twoindex = $index"
+                ng-click="changeclass(oneindex,twoindex)"
+                ui-sref="{{y.router}}"
+                ng-class="{true:'secondlist2',false:'secondlist1'}[y.style]"
+                >{{y.secondname}}</li>
+            </ul>
+        </div>
+        <!-- 路由传参设置，放进li标签中起作用
+        ui-sref="{{y.router}}({one: oneindex, two: twoindex})"
+        ui-sref-opts="{reload:'{{y.router}}'}" -->
+         
+    </aside>
 
-<header>
-    <div class="head-right">
-        <span>管理员</span>
-        <span>admin</span>
-        <button class="btn" type="button" ui-sref="login">退出</button>
+    <div ui-view="" class="middle-right">
+        <h1>
+            welcome!
+        </h1>
+        
     </div>
-</header>
-<div class="asidenav">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="asidenav">
     <div class="asidenav_title">
         <span>萝卜多后台管理系统</span>
     </div>
-    <!-- jQuery插件手风琴 -->
     <dl class="list_dl left" ng-controller="backstage">
         <dt class="list_dt">
             <span class="glyphicon glyphicon-pencil"></span>
@@ -61,4 +107,4 @@
     <h1>
         welcome!
     </h1>
-</div>
+</div> -->

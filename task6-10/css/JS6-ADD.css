@@ -20,18 +20,54 @@
 }
 
 .add-style label {
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .add-list-style {
   width: 100%;
+  text-align: center;
 }
 
 .add-list-style th {
+  padding: 1rem;
   text-align: center;
+  width: 15%;
   border: 1px solid #ccc;
+  border-right: none;
 }
 
 .add-list-style td {
+  padding: 1rem;
+  width: 15%;
+  height: auto;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
   text-align: center;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+.add-list-style td button {
+  margin: 1rem auto;
+}
+
+.add-clear-left-border {
+  border-left: none !important;
+}
+
+.add-bottom-btn {
+  float: right;
+  padding: 1rem;
+}
+
+.add-bottom-btn button {
+  width: 10rem;
+}
+
+.add-view {
+  width: 100%;
+  text-align: center;
+  margin: 1rem auto;
+  padding: 1rem;
 }

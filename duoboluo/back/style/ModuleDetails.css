@@ -1,0 +1,64 @@
+.ModuleDetails {
+  padding: 0.2rem calc(0.2rem + 15px) 0.2rem 0.2rem;
+  margin-left: calc(2rem + 15px);
+  height: 100vh;
+  background: #eee;
+}
+
+.ModuleDetails .AC-info {
+  margin-top: .8rem;
+  padding: .15rem;
+  border: #4f4f4f solid 1px;
+  border-radius: .05rem;
+  background: #fff;
+}
+
+.ModuleDetails .AC-info .ac-line {
+  margin-bottom: .2rem;
+}
+
+.ModuleDetails .AC-info .ac-line label {
+  width: 1rem;
+  text-align: center;
+}
+
+.ModuleDetails .AC-info .ac-line input {
+  width: 80%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ModuleDetails .AC-info .ac-line select {
+  width: 80%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ModuleDetails .AC-info .ac-line span {
+  display: block;
+  margin-top: .1rem;
+  margin-left: 1rem;
+}
+
+.ModuleDetails .AC-info .middle {
+  text-align: center;
+}
+
+.ModuleDetails .AC-info .error {
+  font-size: .1rem;
+  color: red;
+}

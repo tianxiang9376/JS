@@ -1,0 +1,30 @@
+<div class="Revision">
+    <div class="list-HD">
+        <span>修改密码</span>
+    
+    </div>
+    <div class="Re-list">
+
+        <div class="pwd">
+          
+            <form class="form-inline">
+                <div class="form-group form-ctrl">
+                    <label for="exampleInputName2">输入旧密码</label>
+                    <input ng-model="vm.oldPwd" type="text" class="form-control" id="exampleInputName2" placeholder="请输入旧密码">
+                </div>
+                <div class="form-group form-ctrl">
+                    <label for="exampleInputName2">设置新密码</label>
+                    <input ng-model="vm.newPwd" type="text" class="form-control" id="exampleInputName2" placeholder="请输入新密码">
+                </div>
+                <div class="form-group form-ctrl">
+                    <label for="exampleInputName2">确认新密码</label>
+                    <input ng-model="vm.newPwdAagin" type="text" class="form-control" id="exampleInputName2" placeholder="请再次输入并确认新密码">
+                    <span class="error" ng-show="vm.newPwd != vm.newPwdAagin">两次输入的密码不一致</span>
+                </div>
+                <div class="form-group form-ctrl">
+                    <button type="button" ng-disabled="vm.createBtn" ng-click="vm.changePwd()" class="btn btn-success save">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

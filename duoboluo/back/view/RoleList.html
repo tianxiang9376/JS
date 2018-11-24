@@ -1,0 +1,25 @@
+<div class="Role">
+    <div class="RO-list">
+        <div class="list-HD">
+            <span>角色管理</span>
+            <button type="button" class="btn btn-success btn-xs" ng-disabled="vm.createBtn" ng-click="vm.editRole()">+新增</button>
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr class="thead">
+                    <th>ID</th>
+                    <th>角色名</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="thead" ng-if="vm.roleList" ng-repeat="role in vm.roleList">
+                    <th>{{role.id}}</th>
+                    <th>{{role.name}}</th>
+                    <th>
+                        <button type="button" class="btn btn-info btn-xs" ng-disabled="vm.updateBtn" ng-click=" vm.editRole(role.id)">编辑</button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-disbled="vm.deleteBtn" ng-click="vm.delRole(role.id)">删除</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
